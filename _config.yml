@@ -1,7 +1,7 @@
 # Site
-title: Halve
-description: Stylish, Two-Column Jekyll Theme
-url: https://taylantatli.github.io/Halve
+title: Personal Blog
+description: There are two types of programmers, the ones who broke production and the ones about to..
+url: https://nostudiodude.github.io/
 logo: halve.png                                       # Site logo
 locale: en_US
 
@@ -29,13 +29,13 @@ sass:
 #google-analytics: UA-XXXXX-Y
 
 # Social Links
-#email:             email
+email:             rpnunes@hotmail.com
 #google.plus:        username
-twitter:            username
+twitter:            delfohd
 #facebook:           username
-github:             username
-stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          username
+github:             nostudiodude
+stackoverflow:     1223154/rui   from a "http://stackoverflow.com/users/123456/username" link
+linkedin:          rui-nunes-1b081525
 #xing:              username
 #instagram:          username
 #lastfm:            username
@@ -52,7 +52,7 @@ stackoverflow:     123456/username   from a "http://stackoverflow.com/users/1234
 #keybase:           username
 #xmpp:              username@server.com
 #hackernews:        username
-behance:           username
+#behance:           username
 
 # Gems
 gems:
