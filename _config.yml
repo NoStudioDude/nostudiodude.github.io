@@ -1,16 +1,23 @@
-name: Your New Jekyll Site
-description: Blogging about stuffs
-meta_description: "Your New Jekyll Site, Blogging about stuffs"
+name: Rui Nunes
+description: There are two types of programmers, the ones who broke production and the ones about to..
+meta_description: "Rui Nunes, There are two types of developer, the ones who broke production and the ones about to.."
 
 markdown: kramdown
 highlighter: pygments
 logo: false
 paginate: 15
 baseurl: /
-domain_name: 'http://yourblog-domain.com'
+domain_name: ''
 google_analytics: 'UA-XXXXXXXX-X'
 gems: [jekyll-paginate]
 
 # Details for the RSS feed generator
-url:            'blog url'
-author:         'Your Name'
+url:            'https://nostudiodude.github.io/'
+author:         'Rui Nunes'
+
+# Social Media links
+mail: 'rpnunes26@hotmail.com'
+stackoverflow:  ''
+github: ''
+linkedin: ''
+twitter: ''
