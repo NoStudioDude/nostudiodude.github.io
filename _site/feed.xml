@@ -5,8 +5,8 @@
     <description>There are two types of programmers, the ones who broke production and the ones about to..</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Jan 2018 19:02:11 +0100</pubDate>
-    <lastBuildDate>Fri, 12 Jan 2018 19:02:11 +0100</lastBuildDate>
+    <pubDate>Fri, 12 Jan 2018 22:41:37 +0100</pubDate>
+    <lastBuildDate>Fri, 12 Jan 2018 22:41:37 +0100</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
     
       <item>
@@ -54,7 +54,7 @@
 &lt;pre&gt;&lt;code&gt;ng serve
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Congrats, you now have a running angular application. The command &lt;code&gt;ng serve&lt;/code&gt; will run our application and keep track of changes made. The application will be running on &lt;code&gt;port 4200&lt;/code&gt;. To see your new application go to your favorite browser and enter the navigate to the following address:&lt;/p&gt;
+&lt;p&gt;Congrats, you now have a running angular application. The command &lt;code&gt;ng serve&lt;/code&gt; will run our application and keep track of changes made. The application will be running on &lt;code&gt;port 4200&lt;/code&gt;. To see your new application go to your favorite browser and navigate to the following address:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;http://localhost:4200
 &lt;/code&gt;&lt;/pre&gt;

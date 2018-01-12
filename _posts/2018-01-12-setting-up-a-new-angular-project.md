@@ -3,6 +3,7 @@ layout: post
 title:  "Setting up a new angular project"
 date:   2018-01-12
 categories: Angular Web Development
+cover: /assets/post-covers/setup-angular.png
 ---
 
 Despite all the tutorials on the internet I decided to write my own how-to on how to set up a new angular project. I'm writing this for my future me, since I'm pretty sure I will forget most of the setps I took to start working with Angular.   
@@ -44,7 +45,7 @@ We should be able to test our new angular application. For that execute in the t
 
     ng serve
 
-Congrats, you now have a running angular application. The command `ng serve` will run our application and keep track of changes made. The application will be running on `port 4200`. To see your new application go to your favorite browser and enter the navigate to the following address:
+Congrats, you now have a running angular application. The command `ng serve` will run our application and keep track of changes made. The application will be running on `port 4200`. To see your new application go to your favorite browser and navigate to the following address:
 
     http://localhost:4200
 
