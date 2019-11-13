@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script type="text/javascript">
+        function load()
+        {
+            var callbackUrl = 'http://www.clockify.com';
+            const url = window.location.href;
+            const code = this.getParameterByName('code', url);
+            if(this.isIOS)
+            {
+                callbackUrl = 'clockify:\\\\com.companyname.Clockify';
+            }
+            
+            callbackUrl = callbackUrl + '?code=' + code;
+
+            window.location.href = callbackUrl;
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+
+            if (!results) return null;
+            if (!results[2]) return '';
+
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        function isIOS() { 
+            if( navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        </script>
+    </head>
+
+    <body onload="load()">
+        <h1>Nothing to see here :)</h1>
+    </body>
+</html> 
