@@ -49,6 +49,30 @@
       .grid,.steps{grid-template-columns:1fr}
     }
     code.kbd{padding:2px 6px;background:#eef2fb;border:1px solid var(--border);border-radius:6px;font-family:ui-monospace,Menlo,monospace}
+
+    /* Accordion (FAQ) */
+    .accordion{ display:grid; gap:12px; }
+    details.acc{
+      background:var(--card); border:1px solid var(--border); border-radius:18px; padding:0;
+    }
+    details.acc[open]{ border-color:rgba(59,130,246,.35); box-shadow:0 6px 18px rgba(59,130,246,.08); }
+    .acc summary{
+      list-style:none; cursor:pointer; user-select:none;
+      padding:16px 18px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+      font-weight:700;
+    }
+    .acc summary::-webkit-details-marker{ display:none; } /* hide default arrow */
+    .acc .chev{
+      flex:0 0 16px; width:16px; height:16px; position:relative;
+    }
+    .acc .chev::before{
+      content:""; position:absolute; inset:0;
+      border:2px solid var(--muted); border-left:0; border-top:0; transform:rotate(-45deg);
+    }
+    details.acc[open] .chev::before{ transform:rotate(45deg); border-color:var(--accent); }
+    .acc .body{ padding:0 18px 16px 18px; }
+
+
   </style>
 </head>
 <body>
@@ -111,13 +135,32 @@
 
     <section class="section">
       <h2>FAQ</h2>
-      <div class="grid">
-        <div class="card"><b>Does it work everywhere?</b><p class="muted">Most sites and editors, yes. Browser-restricted pages (e.g., <code class="kbd">chrome://</code>, web store, PDFs) don't allow content scripts.</p></div>
-        <div class="card"><b>Can I change the shortcut?</b><p class="muted">Yes — go to <code class="kbd">chrome://extensions/shortcuts</code>.</p></div>
-        <div class="card"><b>How are keys stored?</b><p class="muted">In your browser's local storage. You can remove them at any time.</p></div>
+      <div class="accordion">
+    
+        <details class="acc">
+          <summary><span>Does it work everywhere?</span><span class="chev"></span></summary>
+          <div class="body">
+            <p class="muted">Most sites and editors, yes. Browser-restricted pages (e.g., <code class="kbd">chrome://</code>, the web store, PDFs) don’t allow content scripts. Use the popup input there.</p>
+          </div>
+        </details>
+    
+        <details class="acc">
+          <summary><span>Can I change the shortcut?</span><span class="chev"></span></summary>
+          <div class="body">
+            <p class="muted">Yep — go to <code class="kbd">chrome://extensions/shortcuts</code> and set your own key for “Improve selection.”</p>
+          </div>
+        </details>
+    
+        <details class="acc">
+          <summary><span>How are API keys stored?</span><span class="chev"></span></summary>
+          <div class="body">
+            <p class="muted">Keys live in your browser’s local storage. Fluentify has no servers and sends your text directly to the provider you choose.</p>
+          </div>
+        </details>
+    
       </div>
     </section>
-
+    
     <p class="footer">© 2025 nostudiodude</p>
   </div>
 </body>
