@@ -4,15 +4,13 @@ source "https://rubygems.org"
 
 # Use Jekyll 4.x for better compatibility
 gem "jekyll", "~> 4.3"
-gem "jekyll-paginate", "~> 1.1"
-gem "jekyll-sitemap", "~> 1.4"
 gem "kramdown", "~> 2.3.0"
 gem "kramdown-parser-gfm", "~> 1.1"
 
 # For GitHub Pages compatibility
 group :jekyll_plugins do
-  gem "jekyll-paginate"
-  gem "jekyll-sitemap"
+  gem "jekyll-paginate", "~> 1.1"
+  gem "jekyll-sitemap", "~> 1.4"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
