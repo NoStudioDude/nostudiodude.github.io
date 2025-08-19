@@ -224,7 +224,7 @@ exclude:
   - screenshot.png
   - docs/
 
-plugins:
+gems:
   - jekyll-paginate
   - jekyll-sitemap
 
