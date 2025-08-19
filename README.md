@@ -34,6 +34,10 @@ This website is built using:
 - **Custom CSS**: Personalized styling and branding
 - **GitHub Pages**: Hosting and deployment
 
+## 🚀 Projects
+
+- **Fluentify**: [Project Hub](fluentify) - Comprehensive project documentation and resources
+
 ## 📝 Blog Posts
 
 Check out my latest posts:

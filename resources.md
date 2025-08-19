@@ -107,6 +107,7 @@ subtitle: Game Development Tools & Learning Materials
 
 - **[My GitHub](https://github.com/nostudiodude)**: Check out my projects
 - **[My Twitch](https://twitch.tv/delfo)**: Watch live development
+- **[Fluentify Project Hub](fluentify)**: Project documentation and resources
 - **[Game Development Wiki](https://en.wikipedia.org/wiki/Video_game_development)**: General overview
 - **[IndieDB](https://www.indiedb.com/)**: Discover indie games and developers
 

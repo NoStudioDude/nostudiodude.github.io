@@ -87,6 +87,7 @@ I'm always open to collaborating on interesting projects! If you have an idea yo
 - **Email**: nostudiodude@hotmail.com
 - **GitHub**: [@nostudiodude](https://github.com/nostudiodude)
 - **Twitch**: [@delfo](https://twitch.tv/delfo) - Watch development live!
+- **Fluentify**: [Project Hub](fluentify) - Check out our project documentation
 
 ---
 

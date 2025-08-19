@@ -70,6 +70,7 @@ Don't miss new posts! You can:
 
 - **Follow me on GitHub** for project updates
 - **Watch my Twitch streams** for live development sessions
+- **Check out Fluentify** for project documentation and updates
 - **Join the conversation** on Reddit and Discord
 - **Email me directly** with questions or collaboration ideas
 
