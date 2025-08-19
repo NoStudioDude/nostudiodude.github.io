@@ -1,0 +1,397 @@
+/* Custom styles for NoStudioDude website */
+
+/* Custom color scheme for game development theme */
+:root {
+  --primary-color: #8B5CF6;
+  --secondary-color: #06B6D4;
+  --accent-color: #10B981;
+  --dark-color: #1F2937;
+  --light-color: #F9FAFB;
+}
+
+/* Enhanced navbar styling */
+.navbar-default {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: var(--accent-color) !important;
+  transform: translateY(-2px);
+}
+
+/* Custom button styling */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Enhanced post cards */
+.post-preview {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.post-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom footer styling */
+.footer {
+  background: linear-gradient(135deg, var(--dark-color), #374151) !important;
+  color: var(--light-color) !important;
+}
+
+/* Enhanced social media links */
+.social-network-links a {
+  color: var(--primary-color) !important;
+  transition: all 0.3s ease;
+}
+
+.social-network-links a:hover {
+  color: var(--secondary-color) !important;
+  transform: scale(1.2);
+}
+
+/* Custom page headers */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 40px 0;
+  margin-bottom: 30px;
+  border-radius: 0 0 20px 20px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.page-header p {
+  margin: 10px 0 0 0;
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+/* Enhanced code blocks */
+.highlight {
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+}
+
+/* Custom tag styling */
+.tag {
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin: 2px;
+  display: inline-block;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2em;
+  }
+  
+  .page-header p {
+    font-size: 1em;
+  }
+}
+
+/* Game development themed elements */
+.game-dev-icon {
+  font-size: 1.5em;
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+/* Enhanced navigation */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: white !important;
+}
+
+/* Custom link styling */
+a {
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+/* Project Hub specific styles */
+.project-hub {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 20px;
+  color: white;
+}
+
+.project-title {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.project-subtitle {
+  font-size: 1.2em;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.content-grid {
+  display: grid;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.content-section {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.content-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+/* Document Links */
+.document-links {
+  display: grid;
+  gap: 15px;
+}
+
+.doc-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--dark-color);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.doc-link:hover {
+  background: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+}
+
+.doc-icon {
+  font-size: 2em;
+  margin-right: 15px;
+}
+
+.doc-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-content strong {
+  color: var(--primary-color);
+  font-size: 1.1em;
+}
+
+.doc-content span {
+  color: #6b7280;
+  font-size: 0.9em;
+}
+
+/* Quick Links */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--dark-color);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.quick-link:hover {
+  background: white;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+}
+
+.quick-link i {
+  font-size: 1.5em;
+  margin-right: 10px;
+  color: var(--accent-color);
+}
+
+/* Status Grid */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.status-label {
+  font-size: 0.9em;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.status-value {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.status-value.active {
+  color: var(--accent-color);
+}
+
+/* Involvement Grid */
+.involvement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.involvement-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.involvement-icon {
+  font-size: 2em;
+  margin-right: 15px;
+}
+
+.involvement-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.involvement-item strong {
+  color: var(--primary-color);
+}
+
+.involvement-item span {
+  color: #6b7280;
+  font-size: 0.9em;
+}
+
+/* Contact Links */
+.contact-links {
+  display: grid;
+  gap: 15px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--dark-color);
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-link i {
+  font-size: 1.5em;
+  margin-right: 15px;
+  color: var(--primary-color);
+}
+
+.footer-quote {
+  text-align: center;
+  padding: 30px;
+  background: #f8fafc;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.footer-quote p {
+  margin: 0;
+  font-size: 1.2em;
+  color: var(--primary-color);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-title {
+    font-size: 2em;
+  }
+  
+  .quick-links,
+  .status-grid,
+  .involvement-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .content-section {
+    padding: 20px;
+  }
+} 
