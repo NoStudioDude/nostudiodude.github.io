@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluentify — Privacy Policy</title>
+  <meta name="description" content="Fluentify Privacy Policy — a privacy-first browser extension for instant AI rewrites." />
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#ffffff; --ink:#101217; --muted:#5d667a;
+      --accent:#3b82f6; --accent2:#2563eb; --border:#e3e7f0;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font:16px/1.7 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;color:var(--ink);background:var(--bg)}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:28px}
+    .nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+    .badge{width:28px;height:28px;border-radius:10px;background:linear-gradient(180deg,#5aa3ff,#2f6eea);box-shadow:0 10px 24px rgba(59,130,246,.35), inset 0 0 12px rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px}
+    .section{margin-top:18px}
+    .muted{color:var(--muted)}
+    h1{margin:0 0 6px;font-size:30px;line-height:1.25}
+    h2{margin:18px 0 8px;font-size:20px}
+    ul{margin:8px 0 0 20px}
+    .footer{margin:48px 0 16px;color:var(--muted);text-align:center}
+    code.kbd{padding:2px 6px;background:#eef2fb;border:1px solid var(--border);border-radius:6px;font-family:ui-monospace,Menlo,monospace}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="logo">
+        <div class="badge">F</div>
+        <div>Fluentify</div>
+      </div>
+      <div>
+        <a href="https://nostudiodude.github.io/fluentify/">Fluentify</a>
+      </div>
+    </div>
+
+    <section class="card">
+      <h1>Privacy Policy</h1>
+      <div class="muted">Last updated: <span id="lastUpdated">2025-01-01</span></div>
+      <p class="muted" style="margin-top:10px">Fluentify is built to be privacy-first. We don’t run servers and we don’t track you.</p>
+    </section>
+
+    <section class="section card">
+      <h2>What data Fluentify processes</h2>
+      <ul>
+        <li><b>Your text.</b> The text you select or paste is sent <b>directly</b> from your browser to the AI provider you configure (e.g., OpenAI, Anthropic, Mistral) using <b>your</b> API key. Fluentify does not proxy or store this data.</li>
+        <li><b>Local storage.</b> The extension stores your settings (theme, tone, provider, API keys) and a local history of up to <b>25</b> improved texts <b>in your browser storage only</b>.</li>
+      </ul>
+    </section>
+
+    <section class="section card">
+      <h2>What Fluentify does <i>not</i> do</h2>
+      <ul>
+        <li>No analytics or tracking.</li>
+        <li>No cookies.</li>
+        <li>No external logging.</li>
+        <li>No transmission of data to servers controlled by the Fluentify developers.</li>
+      </ul>
+    </section>
+
+    <section class="section card">
+      <h2>Third-party providers</h2>
+      <p class="muted">Your requests are sent only to the provider you choose, subject to their policies:</p>
+      <ul>
+        <li>OpenAI — <code class="kbd">api.openai.com</code></li>
+        <li>Anthropic — <code class="kbd">api.anthropic.com</code></li>
+        <li>Mistral — <code class="kbd">api.mistral.ai</code></li>
+      </ul>
+    </section>
+
+    <section class="section card">
+      <h2>Permissions (why we need them)</h2>
+      <ul>
+        <li><code class="kbd">contextMenus</code> — add right-click actions on selected text.</li>
+        <li><code class="kbd">activeTab</code> / <code class="kbd">scripting</code> — read the current selection and replace it on the page.</li>
+        <li><code class="kbd">storage</code> — save your settings and local history.</li>
+        <li>Host permissions — call your chosen AI provider’s API.</li>
+      </ul>
+    </section>
+
+    <section class="section card">
+      <h2>Security of your keys</h2>
+      <p class="muted">API keys are saved in browser storage (<code class="kbd">chrome.storage.local</code>) on your device. You can delete them anytime from the extension’s Providers settings or by removing the extension.</p>
+    </section>
+
+    <section class="section card">
+      <h2>Your choices</h2>
+      <ul>
+        <li>Clear local history in <span class="pill">Settings → About</span>.</li>
+        <li>Remove API keys or switch providers in <span class="pill">Settings → Providers</span>.</li>
+        <li>Uninstall the extension at any time.</li>
+      </ul>
+    </section>
+
+    <section class="section card">
+      <h2>Contact</h2>
+      <p class="muted">Questions or issues? Email <a href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>.</p>
+    </section>
+
+    <p class="footer">© 2025 nostudiodude</p>
+  </div>
+
+  <script>
+    // Optional: auto-set today's date if you forget to update it
+    const el = document.getElementById('lastUpdated');
+    if (el && el.textContent.trim() === '2025-01-01') {
+      const d = new Date();
+      const fmt = new Intl.DateTimeFormat(undefined, { year:'numeric', month:'2-digit', day:'2-digit' });
+      el.textContent = fmt.format(d);
+    }
+  </script>
+</body>
+</html>
