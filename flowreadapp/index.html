@@ -95,7 +95,9 @@
             letter-spacing: 0.06em;
         }
 
-        /* ── RSVP Demo ── */
+        /* ═══════════════════════════════════════════
+           INTERACTIVE APP EMULATOR
+        ═══════════════════════════════════════════ */
         .demo-section {
             margin-top: 64px;
             padding: 0 24px;
@@ -110,88 +112,543 @@
             margin-bottom: 18px;
         }
 
-        .demo-window {
-            max-width: 680px;
+        /* ── Outer frame ── */
+        .emu-frame {
+            max-width: 780px;
             margin: 0 auto;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            height: 160px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            background: #0a0e1a;
+            border: 1px solid #1e2d45;
+            border-radius: 24px;
             overflow: hidden;
-            cursor: pointer;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
             user-select: none;
         }
 
-        .demo-tick {
-            position: absolute;
-            width: 26px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* ── Top bar ── */
+        .emu-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .demo-tick.top {
-            top: 36px;
+        .emu-chapter {
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.22);
         }
 
-        .demo-tick.bottom {
-            bottom: 36px;
+        .emu-progress {
+            font-size: 9px;
+            letter-spacing: 0.14em;
+            color: rgba(255, 255, 255, 0.22);
         }
 
-        #demo-word {
-            font-size: clamp(32px, 6vw, 48px);
+        /* ── Main reader area ── */
+        .emu-reader {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.25s;
+        }
+
+        /* ── Display mode: large (1 word) ── */
+        .emu-words-large {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            width: 100%;
+        }
+
+        .emu-words-large .emu-w-main {
+            font-size: clamp(32px, 5vw, 52px);
             font-weight: 800;
             letter-spacing: -0.01em;
-            transition: opacity 0.06s;
+            line-height: 1;
+            position: relative;
         }
 
-        #demo-word .orp {
-            color: var(--accent);
+        /* ── Display mode: medium (3 words) ── */
+        .emu-words-medium {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(14px, 3vw, 36px);
+            width: 100%;
+            padding: 0 24px;
         }
 
-        .demo-meta {
+        .emu-words-medium .emu-w-side {
+            font-size: clamp(18px, 2.5vw, 26px);
+            font-weight: 400;
+            opacity: 0.28;
+        }
+
+        .emu-words-medium .emu-w-main {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+
+        /* ── Display mode: small (5 words) ── */
+        .emu-words-small {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(10px, 2.5vw, 28px);
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .emu-words-small .emu-w-side2 {
+            font-size: clamp(12px, 1.5vw, 17px);
+            font-weight: 400;
+            opacity: 0.18;
+        }
+
+        .emu-words-small .emu-w-side1 {
+            font-size: clamp(15px, 2vw, 22px);
+            font-weight: 400;
+            opacity: 0.28;
+        }
+
+        .emu-words-small .emu-w-main {
+            font-size: clamp(22px, 3.2vw, 36px);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+
+        /* ── Focus ticks ── */
+        .emu-w-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .emu-tick {
+            width: 22px;
+            height: 2px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .emu-word-text {
+            line-height: 1;
+        }
+
+        /* ── WPM badge ── */
+        .emu-wpm-badge {
             position: absolute;
-            bottom: 12px;
-            right: 16px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            opacity: 0;
+            transition: opacity 0.15s;
+            pointer-events: none;
+        }
+
+        .emu-wpm-badge.show {
+            opacity: 1;
+        }
+
+        .emu-wpm-badge span {
+            font-size: 0.42em;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+
+        /* ── Hint ── */
+        .emu-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--muted);
+            opacity: 0.3;
+            white-space: nowrap;
+            transition: opacity 0.4s;
+            pointer-events: none;
         }
 
-        .demo-controls {
-            max-width: 680px;
-            margin: 14px auto 0;
-            display: flex;
-            gap: 10px;
+        .emu-hint.hidden {
+            opacity: 0;
+        }
+
+        /* ── Skim overlay ── */
+        .emu-skim {
+            position: absolute;
+            inset: 0;
+            padding: 22px 28px;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
             justify-content: center;
+            cursor: grab;
+        }
+
+        .emu-skim.active {
+            display: flex;
+        }
+
+        .emu-skim-text {
+            font-size: clamp(11px, 1.6vw, 14px);
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: left;
+        }
+
+        .emu-skim-text .emu-skim-highlight {
+            font-weight: 700;
+        }
+
+        .emu-skim-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.3;
+            white-space: nowrap;
+        }
+
+        /* ── Nav menu overlay ── */
+        .emu-menu {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            padding: 24px 32px;
+            gap: 4px;
+        }
+
+        .emu-menu.active {
+            display: flex;
+        }
+
+        .emu-menu-label {
+            font-size: 9px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            opacity: 0.3;
+            margin-bottom: 8px;
+        }
+
+        .emu-menu-item {
+            font-size: clamp(13px, 2vw, 18px);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            cursor: pointer;
+            transition: opacity 0.15s;
+            opacity: 0.7;
+        }
+
+        .emu-menu-item:hover {
+            opacity: 1;
+        }
+
+        .emu-menu-close-hint {
+            margin-top: 12px;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.25;
+        }
+
+        /* ── Controls row ── */
+        .emu-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
         }
 
         .demo-btn {
             background: transparent;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 11px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            padding: 7px 18px;
+            padding: 6px 14px;
             border-radius: 999px;
             cursor: pointer;
             font-family: inherit;
-            transition: border-color 0.15s, color 0.15s;
+            transition: border-color 0.15s, color 0.15s, background 0.15s;
+            white-space: nowrap;
         }
 
-        .demo-btn:hover,
+        .demo-btn:hover {
+            border-color: rgba(255, 255, 255, 0.35);
+            color: #fff;
+        }
+
         .demo-btn.active {
             border-color: var(--accent);
-            color: var(--ink);
+            color: var(--accent);
+        }
+
+        .demo-btn.play-btn {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        .demo-btn.play-btn.paused {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .emu-divider {
+            width: 1px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        /* ── Theme variants ── */
+        .emu-frame.theme-dark {
+            background: #0d1321;
+        }
+
+        .emu-frame.theme-light {
+            background: #f5f3ee;
+            color: #1a1a2e;
+        }
+
+        .emu-frame.theme-night {
+            background: #000000;
+        }
+
+        .emu-frame.theme-light .emu-topbar {
+            border-bottom-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .emu-frame.theme-light .emu-controls {
+            border-top-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .emu-frame.theme-light .emu-chapter,
+        .emu-frame.theme-light .emu-progress {
+            color: rgba(0, 0, 0, 0.25);
+        }
+
+        .emu-frame.theme-light .demo-btn {
+            border-color: rgba(0, 0, 0, 0.14);
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        .emu-frame.theme-light .demo-btn:hover {
+            border-color: rgba(0, 0, 0, 0.5);
+            color: #000;
+        }
+
+        .emu-frame.theme-light .demo-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .emu-frame.theme-light .demo-btn.play-btn {
+            border-color: rgba(0, 0, 0, 0.3);
+            color: #000;
+        }
+
+        .emu-frame.theme-light .emu-divider {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .emu-frame.theme-light .emu-skim-text {
+            color: rgba(0, 0, 0, 0.35);
+        }
+
+        .emu-frame.theme-light .emu-menu-item {
+            border-bottom-color: rgba(0, 0, 0, 0.06);
+        }
+
+        /* accent colour variants */
+        .emu-frame.accent-amber .emu-tick {
+            background: #f59e0b;
+        }
+
+        .emu-frame.accent-amber .emu-orp {
+            color: #f59e0b;
+        }
+
+        .emu-frame.accent-amber .emu-wpm-badge {
+            color: #f59e0b;
+        }
+
+        .emu-frame.accent-amber .emu-skim-highlight {
+            color: #f59e0b;
+        }
+
+        .emu-frame.accent-red .emu-tick {
+            background: #ef4444;
+        }
+
+        .emu-frame.accent-red .emu-orp {
+            color: #ef4444;
+        }
+
+        .emu-frame.accent-red .emu-wpm-badge {
+            color: #ef4444;
+        }
+
+        .emu-frame.accent-red .emu-skim-highlight {
+            color: #ef4444;
+        }
+
+        /* font variants */
+        .emu-frame.font-default .emu-reader {
+            font-family: ui-sans-serif, system-ui, sans-serif;
+        }
+
+        .emu-frame.font-atkinson .emu-reader {
+            font-family: 'Atkinson Hyperlegible', sans-serif;
+        }
+
+        .emu-frame.font-lexend .emu-reader {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        /* ── Settings panel (below frame) ── */
+        .emu-settings {
+            max-width: 780px;
+            margin: 16px auto 0;
+            background: #0a0e1a;
+            border: 1px solid #1e2d45;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .emu-settings-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            transition: color 0.15s;
+        }
+
+        .emu-settings-toggle:hover {
+            color: #fff;
+        }
+
+        .emu-settings-toggle .chevron {
+            transition: transform 0.25s;
+        }
+
+        .emu-settings-toggle.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .emu-settings-body {
+            display: none;
+            padding: 0 22px 20px;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .emu-settings-body.open {
+            display: grid;
+        }
+
+        .emu-settings-group {}
+
+        .emu-settings-group-label {
+            font-size: 9px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.25);
+            margin-bottom: 10px;
+            padding-top: 4px;
+        }
+
+        .emu-setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 12px;
+        }
+
+        .emu-setting-row:last-child {
+            border-bottom: none;
+        }
+
+        .emu-setting-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .emu-setting-options {
+            display: flex;
+            gap: 4px;
+        }
+
+        .emu-opt {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 4px 9px;
+            cursor: pointer;
+            background: none;
+            font-family: inherit;
+            color: rgba(255, 255, 255, 0.35);
+            transition: border-color 0.15s, color 0.15s, background 0.15s;
+        }
+
+        .emu-opt:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .emu-opt.active {
+            border-color: #f59e0b;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        .emu-opt.active-red {
+            border-color: #ef4444;
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.08);
         }
 
         /* ── Problem ── */
@@ -527,19 +984,148 @@
             </div>
         </div>
 
-        <!-- RSVP Demo -->
+        <!-- RSVP Interactive Emulator -->
         <div class="demo-section">
-            <p class="demo-label">· try it · tap to play ·</p>
-            <div class="demo-window" id="demo-win" role="button" aria-label="RSVP demo, tap to play/pause" tabindex="0">
-                <div class="demo-tick top"></div>
-                <div id="demo-word"><span class="orp">T</span>ap</div>
-                <div class="demo-tick bottom"></div>
-                <div class="demo-meta" id="demo-meta">300 WPM</div>
+            <p class="demo-label">· interactive demo · tap the screen to play ·</p>
+
+            <div class="emu-frame theme-dark accent-amber font-default" id="emu">
+
+                <!-- top bar -->
+                <div class="emu-topbar">
+                    <span class="emu-chapter" id="emu-chapter">Chapter One</span>
+                    <span class="emu-progress" id="emu-progress">0%</span>
+                </div>
+
+                <!-- reader -->
+                <div class="emu-reader" id="emu-reader">
+
+                    <!-- large mode (1 word) -->
+                    <div class="emu-words-large" id="emu-mode-large">
+                        <div class="emu-w-main">
+                            <div class="emu-tick"></div>
+                            <div class="emu-word-text" id="emu-wl"></div>
+                            <div class="emu-tick"></div>
+                        </div>
+                    </div>
+
+                    <!-- medium mode (3 words) -->
+                    <div class="emu-words-medium" id="emu-mode-medium" style="display:none">
+                        <div class="emu-w-side" id="emu-wm-prev"></div>
+                        <div class="emu-w-main">
+                            <div class="emu-tick"></div>
+                            <div class="emu-word-text" id="emu-wm"></div>
+                            <div class="emu-tick"></div>
+                        </div>
+                        <div class="emu-w-side" id="emu-wm-next"></div>
+                    </div>
+
+                    <!-- small mode (5 words) -->
+                    <div class="emu-words-small" id="emu-mode-small" style="display:none">
+                        <div class="emu-w-side2" id="emu-ws-p2"></div>
+                        <div class="emu-w-side1" id="emu-ws-p1"></div>
+                        <div class="emu-w-main">
+                            <div class="emu-tick"></div>
+                            <div class="emu-word-text" id="emu-ws"></div>
+                            <div class="emu-tick"></div>
+                        </div>
+                        <div class="emu-w-side1" id="emu-ws-n1"></div>
+                        <div class="emu-w-side2" id="emu-ws-n2"></div>
+                    </div>
+
+                    <!-- WPM flash -->
+                    <div class="emu-wpm-badge" id="emu-wpm-badge">300<span>wpm</span></div>
+
+                    <!-- tap hint -->
+                    <div class="emu-hint" id="emu-hint">tap to begin</div>
+
+                    <!-- skim overlay -->
+                    <div class="emu-skim" id="emu-skim">
+                        <div class="emu-skim-text" id="emu-skim-text"></div>
+                        <div class="emu-skim-hint">drag to scrub · tap to return</div>
+                    </div>
+
+                    <!-- menu overlay -->
+                    <div class="emu-menu" id="emu-menu">
+                        <div class="emu-menu-label">Navigate</div>
+                        <div class="emu-menu-item" id="emu-menu-library">Library</div>
+                        <div class="emu-menu-item" id="emu-menu-chapters">Chapters</div>
+                        <div class="emu-menu-item" id="emu-menu-close">Return to Reader</div>
+                        <div class="emu-menu-close-hint">swipe right to close</div>
+                    </div>
+
+                </div>
+
+                <!-- controls -->
+                <div class="emu-controls">
+                    <button class="demo-btn play-btn" id="emu-play">▶ Play</button>
+                    <div class="emu-divider"></div>
+                    <button class="demo-btn" id="emu-slower">− Slower</button>
+                    <button class="demo-btn" id="emu-faster">+ Faster</button>
+                    <div class="emu-divider"></div>
+                    <button class="demo-btn" id="emu-skim-btn">⊡ Skim View</button>
+                    <button class="demo-btn" id="emu-menu-btn">☰ Menu</button>
+                </div>
             </div>
-            <div class="demo-controls">
-                <button class="demo-btn" id="btn-play">▶ Play</button>
-                <button class="demo-btn" id="btn-slower">− Slower</button>
-                <button class="demo-btn" id="btn-faster">+ Faster</button>
+
+            <!-- Settings panel -->
+            <div class="emu-settings">
+                <button class="emu-settings-toggle" id="emu-stoggle">
+                    <span>Settings</span>
+                    <svg class="chevron" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="emu-settings-body" id="emu-sbody">
+
+                    <div class="emu-settings-group">
+                        <div class="emu-settings-group-label">Reading</div>
+                        <div class="emu-setting-row">
+                            <div class="emu-setting-name">Display Mode</div>
+                            <div class="emu-setting-options">
+                                <button class="emu-opt active" data-setting="mode" data-val="large">Large</button>
+                                <button class="emu-opt" data-setting="mode" data-val="medium">Medium</button>
+                                <button class="emu-opt" data-setting="mode" data-val="small">Small</button>
+                            </div>
+                        </div>
+                        <div class="emu-setting-row">
+                            <div class="emu-setting-name">Word Highlight</div>
+                            <div class="emu-setting-options">
+                                <button class="emu-opt active" data-setting="highlight" data-val="orp">Letter
+                                    (ORP)</button>
+                                <button class="emu-opt" data-setting="highlight" data-val="word">Full Word</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emu-settings-group">
+                        <div class="emu-settings-group-label">Appearance</div>
+                        <div class="emu-setting-row">
+                            <div class="emu-setting-name">Theme</div>
+                            <div class="emu-setting-options">
+                                <button class="emu-opt active" data-setting="theme" data-val="dark">Dark</button>
+                                <button class="emu-opt" data-setting="theme" data-val="light">Light</button>
+                                <button class="emu-opt" data-setting="theme" data-val="night">Night</button>
+                            </div>
+                        </div>
+                        <div class="emu-setting-row">
+                            <div class="emu-setting-name">Accent Color</div>
+                            <div class="emu-setting-options">
+                                <button class="emu-opt active" data-setting="accent" data-val="amber">Amber</button>
+                                <button class="emu-opt" data-setting="accent" data-val="red">Red</button>
+                            </div>
+                        </div>
+                        <div class="emu-setting-row">
+                            <div class="emu-setting-name">Font</div>
+                            <div class="emu-setting-options">
+                                <button class="emu-opt active" data-setting="font" data-val="default">Default</button>
+                                <button class="emu-opt" data-setting="font" data-val="atkinson">Atkinson</button>
+                                <button class="emu-opt" data-setting="font" data-val="lexend">Lexend</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -693,6 +1279,16 @@
                     <div class="screenshot-caption">Settings</div>
                 </div>
                 <div class="screenshot-item">
+                    <img src="/flowreadapp/assets/screenshots/IMG_4128.PNG" alt="FlowRead settings screen"
+                        loading="lazy" />
+                    <div class="screenshot-caption">Settings</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/flowreadapp/assets/screenshots/IMG_4129.PNG" alt="FlowRead settings screen"
+                        loading="lazy" />
+                    <div class="screenshot-caption">Settings</div>
+                </div>
+                <div class="screenshot-item">
                     <img src="/flowreadapp/assets/screenshots/IMG_4125.PNG" alt="FlowRead library" loading="lazy" />
                     <div class="screenshot-caption">Library</div>
                 </div>
@@ -810,97 +1406,348 @@
         })();
     </script>
 
-    <!-- ── RSVP Demo Script ── -->
+    <!-- ── Emulator Script ── -->
     <script>
         (function () {
-            // Alice's Adventures in Wonderland excerpt (public domain)
-            const text = "Alice was beginning to get very tired of sitting by her sister on the bank and of having nothing to do once or twice she had peeped into the book her sister was reading but it had no pictures or conversations in it and what is the use of a book thought Alice without pictures or conversations";
-            const words = text.split(' ');
+            // ── Text corpus (Alice in Wonderland, public domain) ──
+            const SENTENCES = [
+                "Alice was beginning to get very tired of sitting by her sister on the bank",
+                "and of having nothing to do once or twice she had peeped into the book",
+                "her sister was reading but it had no pictures or conversations in it",
+                "and what is the use of a book thought Alice without pictures or conversations",
+                "so she was considering in her own mind as well as she could for the hot day",
+                "made her feel very sleepy and stupid whether the pleasure of making a daisy chain",
+                "would be worth the trouble of getting up and picking the daisies",
+                "when suddenly a White Rabbit with pink eyes ran close by her",
+            ];
+            const FULL_TEXT = SENTENCES.join(' ');
+            const words = FULL_TEXT.split(' ');
 
-            let idx = 0;
-            let wpm = 300;
-            let playing = false;
-            let timer = null;
+            // ── State ──
+            let idx = 0, wpm = 300, playing = false, timer = null;
+            let mode = 'large';      // large | medium | small
+            let highlight = 'orp';   // orp | word
+            let theme = 'dark';      // dark | light | night
+            let accent = 'amber';    // amber | red
+            let font = 'default';    // default | atkinson | lexend
+            let viewMode = 'reader'; // reader | skim | menu
+            let wpmTimer = null;
 
-            const wordEl = document.getElementById('demo-word');
-            const metaEl = document.getElementById('demo-meta');
-            const playBtn = document.getElementById('btn-play');
-            const slowerBtn = document.getElementById('btn-slower');
-            const fasterBtn = document.getElementById('btn-faster');
-            const demoWin = document.getElementById('demo-win');
+            // ── DOM refs ──
+            const emu = document.getElementById('emu');
+            const reader = document.getElementById('emu-reader');
+            const playBtn = document.getElementById('emu-play');
+            const slowerBtn = document.getElementById('emu-slower');
+            const fasterBtn = document.getElementById('emu-faster');
+            const skimBtn = document.getElementById('emu-skim-btn');
+            const menuBtn = document.getElementById('emu-menu-btn');
+            const wpmBadge = document.getElementById('emu-wpm-badge');
+            const hint = document.getElementById('emu-hint');
+            const skimEl = document.getElementById('emu-skim');
+            const skimText = document.getElementById('emu-skim-text');
+            const menuEl = document.getElementById('emu-menu');
+            const progressEl = document.getElementById('emu-progress');
 
-            // Compute ORP position (roughly 35% into word length, min 1)
-            function orpIndex(word) {
-                const clean = word.replace(/[^a-zA-Z]/g, '');
-                if (!clean.length) return 0;
-                return Math.max(0, Math.floor(clean.length * 0.35));
-            }
+            // word els
+            const wLarge = document.getElementById('emu-wl');
+            const wMed = document.getElementById('emu-wm');
+            const wMedPrv = document.getElementById('emu-wm-prev');
+            const wMedNxt = document.getElementById('emu-wm-next');
+            const wSm = document.getElementById('emu-ws');
+            const wSmP2 = document.getElementById('emu-ws-p2');
+            const wSmP1 = document.getElementById('emu-ws-p1');
+            const wSmN1 = document.getElementById('emu-ws-n1');
+            const wSmN2 = document.getElementById('emu-ws-n2');
 
-            function renderWord(word) {
-                const i = orpIndex(word);
-                const before = word.slice(0, i);
-                const orp = word.slice(i, i + 1);
-                const after = word.slice(i + 1);
-                wordEl.innerHTML =
-                    (before ? '<span class="rest">' + escHtml(before) + '</span>' : '') +
-                    '<span class="orp">' + escHtml(orp) + '</span>' +
-                    (after ? '<span class="rest">' + escHtml(after) + '</span>' : '');
-            }
+            // mode panels
+            const panelLarge = document.getElementById('emu-mode-large');
+            const panelMedium = document.getElementById('emu-mode-medium');
+            const panelSmall = document.getElementById('emu-mode-small');
 
-            function escHtml(s) {
+            // settings
+            const stoggle = document.getElementById('emu-stoggle');
+            const sbody = document.getElementById('emu-sbody');
+
+            // ── Helpers ──
+            function esc(s) {
                 return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             }
 
-            function advance() {
-                wordEl.style.opacity = '0';
-                setTimeout(function () {
-                    renderWord(words[idx]);
-                    wordEl.style.opacity = '1';
-                    idx = (idx + 1) % words.length;
-                }, 60);
+            function orpIdx(word) {
+                const c = word.replace(/[^a-zA-Z]/g, '');
+                return c.length ? Math.max(0, Math.floor(c.length * 0.35)) : 0;
             }
 
-            function start() {
-                if (playing) return;
+            function markWord(word) {
+                if (highlight === 'word') {
+                    // full word highlight via accent span
+                    return '<span class="emu-orp">' + esc(word) + '</span>';
+                }
+                // ORP mode
+                const i = orpIdx(word);
+                return esc(word.slice(0, i)) +
+                    '<span class="emu-orp">' + esc(word.slice(i, i + 1)) + '</span>' +
+                    esc(word.slice(i + 1));
+            }
+
+            function getWord(offset) {
+                const i = idx + offset;
+                if (i < 0 || i >= words.length) return '';
+                return words[i];
+            }
+
+            function renderReaderWords() {
+                const w = getWord(0);
+                wLarge.innerHTML = markWord(w);
+                wMed.innerHTML = markWord(w);
+                wMedPrv.textContent = getWord(-1);
+                wMedNxt.textContent = getWord(1);
+                wSm.innerHTML = markWord(w);
+                wSmP2.textContent = getWord(-2);
+                wSmP1.textContent = getWord(-1);
+                wSmN1.textContent = getWord(1);
+                wSmN2.textContent = getWord(2);
+                progressEl.textContent = Math.round((idx / words.length) * 100) + '%';
+            }
+
+            function setModeDisplay() {
+                panelLarge.style.display = mode === 'large' ? 'flex' : 'none';
+                panelMedium.style.display = mode === 'medium' ? 'flex' : 'none';
+                panelSmall.style.display = mode === 'small' ? 'flex' : 'none';
+            }
+
+            // ── Reader advance ──
+            function advance() {
+                // brief opacity flash
+                [wLarge, wMed, wSm].forEach(function (el) { el.style.opacity = '0'; });
+                setTimeout(function () {
+                    idx = (idx + 1) % words.length;
+                    renderReaderWords();
+                    [wLarge, wMed, wSm].forEach(function (el) { el.style.opacity = '1'; });
+                }, 55);
+            }
+
+            // ── Play / pause ──
+            function startPlaying() {
+                if (playing || viewMode !== 'reader') return;
                 playing = true;
+                hint.classList.add('hidden');
                 playBtn.textContent = '⏸ Pause';
-                playBtn.classList.add('active');
+                playBtn.classList.add('paused');
                 advance();
                 timer = setInterval(advance, Math.round(60000 / wpm));
             }
 
-            function pause() {
+            function stopPlaying() {
                 if (!playing) return;
                 playing = false;
-                clearInterval(timer);
-                timer = null;
+                clearInterval(timer); timer = null;
                 playBtn.textContent = '▶ Play';
-                playBtn.classList.remove('active');
+                playBtn.classList.remove('paused');
             }
 
-            function toggle() {
-                playing ? pause() : start();
+            function togglePlay() {
+                if (viewMode !== 'reader') return;
+                playing ? stopPlaying() : startPlaying();
+            }
+
+            // ── WPM ──
+            function flashWpm() {
+                wpmBadge.querySelector('span') || (wpmBadge.innerHTML = wpm + '<span>wpm</span>');
+                wpmBadge.innerHTML = wpm + '<span>wpm</span>';
+                wpmBadge.classList.add('show');
+                clearTimeout(wpmTimer);
+                wpmTimer = setTimeout(function () { wpmBadge.classList.remove('show'); }, 1600);
             }
 
             function setWpm(v) {
-                wpm = Math.min(600, Math.max(60, v));
-                metaEl.textContent = wpm + ' WPM';
+                wpm = Math.min(1000, Math.max(60, v));
+                flashWpm();
                 if (playing) {
                     clearInterval(timer);
                     timer = setInterval(advance, Math.round(60000 / wpm));
                 }
             }
 
-            playBtn.addEventListener('click', toggle);
-            demoWin.addEventListener('click', toggle);
-            demoWin.addEventListener('keydown', function (e) {
-                if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }
-            });
-            slowerBtn.addEventListener('click', function () { setWpm(wpm - 50); });
-            fasterBtn.addEventListener('click', function () { setWpm(wpm + 50); });
+            // ── Skim view ──
+            function buildSkimText() {
+                const WINDOW = 40;
+                const start = Math.max(0, idx - WINDOW);
+                const end = Math.min(words.length - 1, idx + WINDOW);
+                let html = '';
+                for (let i = start; i <= end; i++) {
+                    if (i === idx) {
+                        html += '<span class="emu-skim-highlight">' + esc(words[i]) + '</span> ';
+                    } else {
+                        html += esc(words[i]) + ' ';
+                    }
+                }
+                skimText.innerHTML = html;
+            }
 
-            // Initial render
-            renderWord(words[0]);
+            let skimDragStartX = 0, skimDragIdx = 0;
+            function enterSkim() {
+                if (viewMode === 'menu') return;
+                stopPlaying();
+                viewMode = 'skim';
+                skimEl.classList.add('active');
+                menuEl.classList.remove('active');
+                skimBtn.classList.add('active');
+                skimBtn.textContent = '✕ Exit Skim';
+                buildSkimText();
+            }
+            function exitSkim() {
+                viewMode = 'reader';
+                skimEl.classList.remove('active');
+                skimBtn.classList.remove('active');
+                skimBtn.textContent = '⊡ Skim View';
+            }
+
+            // drag-to-scrub in skim
+            skimEl.addEventListener('mousedown', function (e) {
+                skimDragStartX = e.clientX;
+                skimDragIdx = idx;
+            });
+            skimEl.addEventListener('mousemove', function (e) {
+                if (e.buttons !== 1) return;
+                const dx = e.clientX - skimDragStartX;
+                const step = Math.round(dx / 8);
+                const newIdx = Math.max(0, Math.min(words.length - 1, skimDragIdx - step));
+                if (newIdx !== idx) {
+                    idx = newIdx;
+                    renderReaderWords();
+                    buildSkimText();
+                }
+            });
+            // touch drag
+            skimEl.addEventListener('touchstart', function (e) {
+                skimDragStartX = e.touches[0].clientX;
+                skimDragIdx = idx;
+            }, { passive: true });
+            skimEl.addEventListener('touchmove', function (e) {
+                const dx = e.touches[0].clientX - skimDragStartX;
+                const step = Math.round(dx / 8);
+                const newIdx = Math.max(0, Math.min(words.length - 1, skimDragIdx - step));
+                if (newIdx !== idx) {
+                    idx = newIdx;
+                    renderReaderWords();
+                    buildSkimText();
+                }
+            }, { passive: true });
+            skimEl.addEventListener('click', exitSkim);
+
+            // ── Menu ──
+            function openMenu() {
+                if (viewMode === 'skim') return;
+                stopPlaying();
+                viewMode = 'menu';
+                menuEl.classList.add('active');
+                menuBtn.classList.add('active');
+            }
+            function closeMenu() {
+                viewMode = 'reader';
+                menuEl.classList.remove('active');
+                menuBtn.classList.remove('active');
+            }
+            document.getElementById('emu-menu-close').addEventListener('click', closeMenu);
+            document.getElementById('emu-menu-library').addEventListener('click', function () {
+                closeMenu();
+            });
+            document.getElementById('emu-menu-chapters').addEventListener('click', function () {
+                closeMenu();
+            });
+
+            // ── Apply appearance ──
+            function applyAppearance() {
+                // theme
+                emu.classList.remove('theme-dark', 'theme-light', 'theme-night');
+                emu.classList.add('theme-' + theme);
+                // accent
+                emu.classList.remove('accent-amber', 'accent-red');
+                emu.classList.add('accent-' + accent);
+                // font
+                emu.classList.remove('font-default', 'font-atkinson', 'font-lexend');
+                emu.classList.add('font-' + font);
+            }
+
+            // ── Settings panel ──
+            stoggle.addEventListener('click', function () {
+                stoggle.classList.toggle('open');
+                sbody.classList.toggle('open');
+            });
+
+            document.querySelectorAll('.emu-opt').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const setting = btn.dataset.setting;
+                    const val = btn.dataset.val;
+
+                    // deactivate siblings
+                    document.querySelectorAll('.emu-opt[data-setting="' + setting + '"]').forEach(function (b) {
+                        b.classList.remove('active', 'active-red');
+                    });
+
+                    // activate this one (red accent for accent=red btn)
+                    if (setting === 'accent' && val === 'red') {
+                        btn.classList.add('active-red');
+                    } else {
+                        btn.classList.add('active');
+                    }
+
+                    // apply
+                    if (setting === 'mode') {
+                        mode = val;
+                        setModeDisplay();
+                        renderReaderWords();
+                    } else if (setting === 'highlight') {
+                        highlight = val;
+                        renderReaderWords();
+                    } else if (setting === 'theme') {
+                        theme = val;
+                        applyAppearance();
+                    } else if (setting === 'accent') {
+                        accent = val;
+                        applyAppearance();
+                    } else if (setting === 'font') {
+                        font = val;
+                        applyAppearance();
+                        if (val === 'atkinson' || val === 'lexend') {
+                            loadGoogleFont(val);
+                        }
+                    }
+                });
+            });
+
+            function loadGoogleFont(name) {
+                var map = { atkinson: 'Atkinson+Hyperlegible', lexend: 'Lexend' };
+                var id = 'gf-' + name;
+                if (document.getElementById(id)) return;
+                var link = document.createElement('link');
+                link.id = id;
+                link.rel = 'stylesheet';
+                link.href = 'https://fonts.googleapis.com/css2?family=' + map[name] + ':wght@400;700&display=swap';
+                document.head.appendChild(link);
+            }
+
+            // ── Button wiring ──
+            playBtn.addEventListener('click', function (e) { e.stopPropagation(); togglePlay(); });
+            slowerBtn.addEventListener('click', function (e) { e.stopPropagation(); setWpm(wpm - 50); });
+            fasterBtn.addEventListener('click', function (e) { e.stopPropagation(); setWpm(wpm + 50); });
+            skimBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                viewMode === 'skim' ? exitSkim() : enterSkim();
+            });
+            menuBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                viewMode === 'menu' ? closeMenu() : openMenu();
+            });
+            reader.addEventListener('click', function () {
+                if (viewMode === 'reader') togglePlay();
+            });
+
+            // ── Init ──
+            setModeDisplay();
+            renderReaderWords();
+            applyAppearance();
         })();
     </script>
 
