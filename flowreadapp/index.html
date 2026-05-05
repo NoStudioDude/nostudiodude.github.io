@@ -301,7 +301,7 @@
             flex-direction: column;
             justify-content: center;
             cursor: grab;
-            background: inherit;
+            background: #0d1321;
         }
 
         .emu-skim.active {
@@ -340,6 +340,7 @@
             justify-content: center;
             padding: 24px 32px;
             gap: 4px;
+            background: #0d1321;
         }
 
         .emu-menu.active {
@@ -447,6 +448,16 @@
 
         .emu-frame.theme-light .emu-topbar {
             border-bottom-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .emu-frame.theme-light .emu-skim,
+        .emu-frame.theme-light .emu-menu {
+            background: #f5f3ee;
+        }
+
+        .emu-frame.theme-night .emu-skim,
+        .emu-frame.theme-night .emu-menu {
+            background: #000000;
         }
 
         .emu-frame.theme-light .emu-controls {
