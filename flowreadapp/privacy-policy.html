@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowRead — Privacy Policy</title>
+    <meta name="description"
+        content="FlowRead Privacy Policy. FlowRead collects no data, runs fully offline, and stores everything locally on your device." />
+    <link rel="icon" href="/flowreadapp/assets/favicon.png" />
+    <link rel="stylesheet" href="/flowreadapp/assets/css/styles.css" />
+    <style>
+        .page-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 56px 24px 80px;
+        }
+
+        .page-header {
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .page-header .updated {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .page-header .intro {
+            margin-top: 14px;
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .policy-section {
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+        }
+
+        .policy-section h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .policy-section p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.72;
+            margin-bottom: 10px;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section ul {
+            margin: 8px 0 0 20px;
+        }
+
+        .policy-section ul li {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
+
+        .policy-section ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section code {
+            font-family: ui-monospace, Menlo, 'Courier New', monospace;
+            font-size: 13px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 2px 6px;
+            color: var(--ink);
+        }
+
+        .policy-section strong {
+            color: var(--ink);
+        }
+
+        .contact-link {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Navigation ── -->
+    <nav class="site-nav">
+        <div class="inner">
+            <a class="nav-logo" href="/flowreadapp/">FlowRead</a>
+            <div class="nav-links">
+                <a href="/flowreadapp/support.html">Support</a>
+                <a href="/flowreadapp/privacy-policy.html">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Page Content ── -->
+    <div class="page-content">
+
+        <div class="page-header">
+            <span class="section-label">Privacy Policy</span>
+            <h1>We collect nothing.</h1>
+            <p class="updated">Last updated: 05/05/2026</p>
+            <p class="intro">
+                FlowRead is built on one principle: your reading is your business.
+                The app works entirely on your device. No server, no account, no data leaving your phone — ever.
+            </p>
+        </div>
+
+        <div class="policy-section">
+            <h2>What data FlowRead processes</h2>
+            <p>
+                <strong>None that leaves your device.</strong> The app stores your imported books,
+                reading progress per book, and your settings locally on your device.
+                No data is transmitted anywhere.
+            </p>
+        </div>
+
+        <div class="policy-section">
+            <h2>What FlowRead does <em>not</em> do</h2>
+            <ul>
+                <li>No analytics or usage tracking of any kind.</li>
+                <li>No advertising or ad networks.</li>
+                <li>No cookies.</li>
+                <li>No user accounts or registration.</li>
+                <li>No network requests of any kind during normal operation.</li>
+                <li>No transmission of any data to any server controlled by the developer or any third party.</li>
+                <li>No crash reporting services.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Local storage</h2>
+            <p>
+                All data is stored locally on your device using <strong>SQLite</strong> and the iOS file system.
+                The app stores:
+            </p>
+            <ul>
+                <li>Your imported book files (converted to an internal <code>.rsvp</code> format)</li>
+                <li>Reading progress (word index) per book</li>
+                <li>Your reading preferences and settings</li>
+            </ul>
+            <p>
+                You can delete all app data at any time by deleting the app from your device.
+                There is no account to delete and no server-side data to request removal of,
+                because none was ever created.
+            </p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Third-party SDKs and libraries</h2>
+            <p>
+                FlowRead uses <strong>no third-party SDKs that collect data</strong>.
+                The app uses only Apple system frameworks and the following open-source libraries,
+                none of which collect, transmit, or report any data:
+            </p>
+            <ul>
+                <li><code>expo-haptics</code> — haptic feedback</li>
+                <li><code>expo-sqlite</code> — local database storage</li>
+                <li><code>expo-file-system</code> — file import and management</li>
+                <li><code>react-native-gesture-handler</code> — touch gesture recognition</li>
+                <li><code>react-native-reanimated</code> — animations</li>
+                <li><code>JSZip</code> — EPUB parsing (ZIP extraction)</li>
+                <li><code>fast-xml-parser</code> — EPUB metadata parsing</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Fonts</h2>
+            <p>
+                The app bundles <strong>Atkinson Hyperlegible</strong> and <strong>Lexend</strong>
+                as static assets, both under the SIL Open Font License.
+                No font loading services or CDNs are called. All fonts are included within the app bundle.
+            </p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Encryption</h2>
+            <p>
+                FlowRead uses only standard iOS data storage APIs. The app's
+                <code>Info.plist</code> declares <code>ITSAppUsesNonExemptEncryption: false</code>.
+                No custom encryption is implemented.
+            </p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Your choices</h2>
+            <ul>
+                <li>Delete individual books from within the app's library screen.</li>
+                <li>Delete all app data (books, progress, settings) by uninstalling the app from your device.</li>
+                <li>There is no account to delete, and no data stored outside your device to request removal of.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Children's privacy</h2>
+            <p>
+                FlowRead does not collect any information from anyone, including children.
+                The app is a fully offline reading tool with no sign-up, no account, and no network access.
+            </p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Contact</h2>
+            <p>
+                Questions about this policy?
+                Email <a class="contact-link" href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+        <div class="inner">
+            <span class="footer-copy">© 2026 nostudiodude</span>
+            <div class="footer-links">
+                <a href="/flowreadapp/privacy-policy.html">Privacy Policy</a>
+                <a href="/flowreadapp/support.html">Support</a>
+                <a href="mailto:nostudiodude@hotmail.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

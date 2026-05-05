@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowRead — Support</title>
+    <meta name="description" content="FlowRead support — gestures, FAQ, and contact information." />
+    <link rel="icon" href="/flowreadapp/assets/favicon.png" />
+    <link rel="stylesheet" href="/flowreadapp/assets/css/styles.css" />
+    <style>
+        .page-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 56px 24px 80px;
+        }
+
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .page-header .intro {
+            margin-top: 14px;
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.72;
+        }
+
+        /* ── Support sections ── */
+        .support-section {
+            margin-bottom: 48px;
+        }
+
+        .support-section h2 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Getting started steps */
+        .start-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .start-step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px 20px;
+        }
+
+        .start-step-num {
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+            width: 48px;
+            padding-top: 2px;
+        }
+
+        .start-step-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .start-step-body p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── FAQ ── */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        details {
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        details+details {
+            border-top: none;
+            border-radius: 0;
+        }
+
+        details:first-child {
+            border-radius: 14px 14px 0 0;
+        }
+
+        details:last-child {
+            border-radius: 0 0 14px 14px;
+        }
+
+        details:only-child {
+            border-radius: 14px;
+        }
+
+        summary {
+            padding: 18px 22px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 18px;
+            color: var(--muted);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 22px 18px;
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.72;
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+        }
+
+        .faq-answer strong {
+            color: var(--ink);
+        }
+
+        .faq-answer code {
+            font-family: ui-monospace, Menlo, 'Courier New', monospace;
+            font-size: 13px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 2px 6px;
+            color: var(--ink);
+        }
+
+        /* Contact box */
+        .contact-box {
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            padding: 12px 28px;
+            border-radius: 12px;
+            transition: opacity 0.15s;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.85;
+            color: #000;
+        }
+
+        @media (max-width: 520px) {
+            .start-step {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .start-step-num {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Navigation ── -->
+    <nav class="site-nav">
+        <div class="inner">
+            <a class="nav-logo" href="/flowreadapp/">FlowRead</a>
+            <div class="nav-links">
+                <a href="/flowreadapp/support.html">Support</a>
+                <a href="/flowreadapp/privacy-policy.html">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Page Content ── -->
+    <div class="page-content">
+
+        <div class="page-header">
+            <span class="section-label">Support</span>
+            <h1>How can we help?</h1>
+            <p class="intro">
+                Find answers to common questions below, or email us directly.
+                FlowRead is designed to be simple — if something feels unclear, that's feedback worth knowing.
+            </p>
+        </div>
+
+        <!-- Getting Started -->
+        <section class="support-section">
+            <h2>Getting Started</h2>
+            <div class="start-steps">
+                <div class="start-step">
+                    <div class="start-step-num">01</div>
+                    <div class="start-step-body">
+                        <h3>Import a book</h3>
+                        <p>Tap <strong>IMPORT</strong> in the library screen and pick an EPUB, TXT, or Markdown (.md)
+                            file from your Files app or iCloud Drive. The book will appear in your library instantly.
+                        </p>
+                    </div>
+                </div>
+                <div class="start-step">
+                    <div class="start-step-num">02</div>
+                    <div class="start-step-body">
+                        <h3>Tap your book to open it</h3>
+                        <p>From the library, tap any book to jump straight to your last reading position. The first time
+                            you open a book it starts from the beginning.</p>
+                    </div>
+                </div>
+                <div class="start-step">
+                    <div class="start-step-num">03</div>
+                    <div class="start-step-body">
+                        <h3>Tap to start reading</h3>
+                        <p>Once in the reader, <strong>tap anywhere</strong> to begin. Words appear one at a time at
+                            your chosen speed. Tap again to pause. Everything else — speed, context, navigation — is a
+                            swipe or long press away.</p>
+                    </div>
+                </div>
+                <div class="start-step">
+                    <div class="start-step-num">04</div>
+                    <div class="start-step-body">
+                        <h3>Complete the interactive tutorial</h3>
+                        <p>On first launch, FlowRead walks you through all gestures using an excerpt from <em>Alice's
+                                Adventures in Wonderland</em>. You must perform each real gesture to advance — not just
+                            watch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gesture Reference -->
+        <section class="support-section">
+            <h2>Gesture Reference</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Gesture</th>
+                            <th>What it does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tap anywhere</td>
+                            <td>Start / pause reading</td>
+                        </tr>
+                        <tr>
+                            <td>Swipe up</td>
+                            <td>Speed up (increase WPM)</td>
+                        </tr>
+                        <tr>
+                            <td>Swipe down</td>
+                            <td>Slow down (decrease WPM)</td>
+                        </tr>
+                        <tr>
+                            <td>Swipe left</td>
+                            <td>Enter Skim / Context View (full paragraph)</td>
+                        </tr>
+                        <tr>
+                            <td>Drag in Skim View</td>
+                            <td>Scrub through text — drag left to go back, right to go forward</td>
+                        </tr>
+                        <tr>
+                            <td>Long press (paused)</td>
+                            <td>Open the navigation menu</td>
+                        </tr>
+                        <tr>
+                            <td>Swipe right (in menu)</td>
+                            <td>Close menu and return to reader</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="support-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+
+                <details>
+                    <summary>What file formats are supported?</summary>
+                    <div class="faq-answer">
+                        FlowRead supports <strong>EPUB</strong>, plain text (<code>.txt</code>), and Markdown
+                        (<code>.md</code>) files.
+                        PDF is not supported. If you have a PDF, try converting it to EPUB using a tool like Calibre
+                        first.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Where is my reading progress saved?</summary>
+                    <div class="faq-answer">
+                        On your device only. Progress is saved automatically whenever you pause or leave the reader.
+                        The last opened book launches automatically next time you open the app.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Can I change the reading speed?</summary>
+                    <div class="faq-answer">
+                        Yes. <strong>Swipe up</strong> to increase your WPM, <strong>swipe down</strong> to decrease it.
+                        The current WPM is shown briefly after each adjustment and fades automatically.
+                        You can also set a default WPM in Settings (adjustable in 50 WPM steps, range 60–1000 WPM).
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What is WPM?</summary>
+                    <div class="faq-answer">
+                        <strong>Words Per Minute</strong> — how many words the app shows each minute.
+                        Most people read comfortably between 200–400 WPM. FlowRead supports 60–1000 WPM.
+                        Speed is adjusted in 10 WPM increments during a reading session.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What does "ORP" mean in the Word Highlight setting?</summary>
+                    <div class="faq-answer">
+                        <strong>Optimal Recognition Point</strong> — the letter in a word that your brain uses to
+                        identify it fastest.
+                        When set to <em>Letter</em>, only that center letter is highlighted in your accent color.
+                        This gives your eye a fixed anchor point, reducing the effort needed to process each word.
+                        It's the default and recommended setting.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>The app is stuck in landscape — can I rotate it?</summary>
+                    <div class="faq-answer">
+                        FlowRead is designed <strong>exclusively for landscape orientation</strong> — this is
+                        intentional.
+                        Landscape gives more horizontal reading space and keeps your eye focused on a single vertical
+                        band.
+                        Portrait mode is not supported.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I open the navigation menu?</summary>
+                    <div class="faq-answer">
+                        <strong>Long press anywhere</strong> on the reading screen while reading is paused.
+                        The menu lets you jump to a specific chapter, go back to the library, or access settings.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I get back to my library?</summary>
+                    <div class="faq-answer">
+                        Long press to open the menu (reading must be paused), then tap <strong>LIBRARY</strong>.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does the app require an internet connection?</summary>
+                    <div class="faq-answer">
+                        No. FlowRead is <strong>fully offline</strong>. No account is needed and no network connection
+                        is ever used.
+                        Everything — books, progress, settings — lives on your device.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>My book isn't importing — what should I try?</summary>
+                    <div class="faq-answer">
+                        <ul style="margin-top: 0; padding-left: 18px;">
+                            <li>Make sure the file is an EPUB, TXT, or MD file — PDF is not supported.</li>
+                            <li>Large EPUB files may take a few seconds to process; wait for the spinner to complete.
+                            </li>
+                            <li>If the EPUB is DRM-protected (e.g. from Kindle or Apple Books), it cannot be imported —
+                                DRM prevents third-party apps from reading the file content.</li>
+                            <li>Try exporting or re-saving the file from a different app, then importing again.</li>
+                            <li>If the issue persists, email us with the file size and source app.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Can I use accessibility fonts?</summary>
+                    <div class="faq-answer">
+                        Yes. Go to <strong>Settings → Appearance → Font</strong> and choose
+                        <strong>Atkinson Hyperlegible</strong> (designed for low-vision readers) or
+                        <strong>Lexend</strong> (designed to reduce visual stress for dyslexic readers).
+                        Both fonts are bundled with the app — no download needed.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I delete a book from my library?</summary>
+                    <div class="faq-answer">
+                        In the library screen, <strong>long press any book</strong> to reveal the delete option.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="support-section">
+            <h2>Still need help?</h2>
+            <div class="contact-box">
+                <p>Have a question not covered here, found a bug, or have a feature request?<br>Send an email and we'll
+                    get back to you.</p>
+                <a class="contact-btn" href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+        <div class="inner">
+            <span class="footer-copy">© 2026 nostudiodude</span>
+            <div class="footer-links">
+                <a href="/flowreadapp/privacy-policy.html">Privacy Policy</a>
+                <a href="/flowreadapp/support.html">Support</a>
+                <a href="mailto:nostudiodude@hotmail.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
