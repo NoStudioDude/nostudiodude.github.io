@@ -222,6 +222,8 @@ exclude:
   - README.md
   - screenshot.png
   - docs/
+  - flowreadapp/instructions.md
+  - flowreadapp/spec_flow.md
 
 gems:
   - jekyll-paginate
