@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kira — Privacy Policy</title>
+    <meta name="description" content="Kira Privacy Policy. Kira is a local-first expense tracker. Core expense data is stored on your device. Learn how Kira handles optional AI features and subscriptions." />
+    <meta property="og:title" content="Kira — Privacy Policy" />
+    <meta property="og:description" content="Kira is local-first. Core expense data stays on your device. Read the full privacy policy." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/kira/assets/kira-logo-cartoon.png" />
+    <style>
+        /* ── Design tokens ── */
+        :root {
+            --kira-bg: #F6F3EE;
+            --kira-card: #FCFBF8;
+            --kira-text: #262220;
+            --kira-muted: #9A938B;
+            --kira-sage: #7B9770;
+            --kira-sage-soft: #AFC4A6;
+            --kira-lavender: #D8CDED;
+            --kira-apricot: #EDC4AA;
+            --kira-butter: #E6CF8E;
+            --kira-line: rgba(38, 34, 32, 0.10);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+            background: var(--kira-bg);
+            color: var(--kira-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { color: var(--kira-sage); text-decoration: none; }
+        a:hover { color: var(--kira-text); }
+        img { max-width: 100%; display: block; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 90% 5%, rgba(216, 205, 237, 0.16) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 350px at 10% 60%, rgba(237, 196, 170, 0.10) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Nav ── */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(246, 243, 238, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--kira-line);
+        }
+
+        .nav-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--kira-text);
+        }
+
+        .nav-logo img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; }
+
+        .nav-logo-text { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--kira-text); }
+
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+
+        .nav-links a { font-size: 14px; font-weight: 500; color: var(--kira-muted); transition: color 0.15s; }
+        .nav-links a:hover { color: var(--kira-text); }
+        .nav-links a.active { color: var(--kira-text); font-weight: 600; }
+
+        .nav-cta {
+            background: var(--kira-sage);
+            color: #fff !important;
+            padding: 9px 20px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.15s !important;
+        }
+
+        .nav-cta:hover { opacity: 0.85; color: #fff !important; }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--kira-text);
+            border-radius: 2px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .nav-mobile-menu {
+            display: none;
+            background: rgba(246, 243, 238, 0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--kira-line);
+            padding: 16px 24px 24px;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-mobile-menu.open { display: flex; }
+
+        .nav-mobile-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--kira-text);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--kira-line);
+        }
+
+        .nav-mobile-menu a:last-child { border-bottom: none; }
+        .nav-mobile-menu .nav-cta { margin-top: 8px; text-align: center; color: #fff !important; }
+
+        /* ── Section label ── */
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--kira-sage);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            border-top: 1px solid var(--kira-line);
+            padding: 32px 0;
+            background: var(--kira-card);
+            margin-top: 24px;
+        }
+
+        .footer-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-copy { font-size: 13px; color: var(--kira-muted); }
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .footer-links a { font-size: 13px; color: var(--kira-muted); transition: color 0.15s; }
+        .footer-links a:hover { color: var(--kira-text); }
+
+        /* ── Page layout ── */
+        .page-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 88px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-header-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .page-header-mascot {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 6px 18px rgba(38, 34, 32, 0.10));
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4.5vw, 42px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .page-header .updated {
+            font-size: 13px;
+            color: var(--kira-muted);
+        }
+
+        .page-header .intro {
+            font-size: 16px;
+            color: var(--kira-muted);
+            line-height: 1.72;
+            max-width: 620px;
+        }
+
+        /* ── Policy sections ── */
+        .policy-section {
+            background: var(--kira-card);
+            border: 1px solid var(--kira-line);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 12px rgba(38, 34, 32, 0.05);
+        }
+
+        .policy-section h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--kira-text);
+        }
+
+        .policy-section p {
+            font-size: 15px;
+            color: var(--kira-muted);
+            line-height: 1.75;
+            margin-bottom: 10px;
+        }
+
+        .policy-section p:last-child { margin-bottom: 0; }
+
+        .policy-section ul {
+            margin: 8px 0 0 20px;
+            list-style: disc;
+        }
+
+        .policy-section ul li {
+            font-size: 15px;
+            color: var(--kira-muted);
+            line-height: 1.72;
+            margin-bottom: 5px;
+        }
+
+        .policy-section ul li:last-child { margin-bottom: 0; }
+
+        .policy-section strong { color: var(--kira-text); }
+
+        .contact-link { color: var(--kira-sage); }
+        .contact-link:hover { color: var(--kira-text); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .page-header-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+            .policy-section { padding: 22px 20px; }
+            .footer-inner { justify-content: center; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Navigation ── -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a class="nav-logo" href="/kira/" aria-label="Kira home">
+                <img src="../assets/kira-logo-cartoon.png" alt="" aria-hidden="true" />
+                <span class="nav-logo-text">Kira</span>
+            </a>
+            <div class="nav-links">
+                <a href="/kira/#how-it-works">Features</a>
+                <a href="/kira/privacy/" class="active" aria-current="page">Privacy</a>
+                <a href="/kira/support/">Support</a>
+                <a href="/kira/#download" class="nav-cta">Download</a>
+            </div>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-mobile-menu" id="nav-mobile-menu" aria-label="Mobile navigation">
+            <a href="/kira/#how-it-works">Features</a>
+            <a href="/kira/privacy/">Privacy</a>
+            <a href="/kira/support/">Support</a>
+            <a href="/kira/#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- ── Page Content ── -->
+    <div class="page-content">
+
+        <div class="page-header">
+            <div class="page-header-row">
+                <img src="../assets/surprised_kira.png" alt="Surprised Kira mascot" class="page-header-mascot" loading="eager" />
+                <div>
+                    <span class="section-label">Privacy Policy</span>
+                    <h1>Kira Privacy Policy</h1>
+                    <p class="updated">Last updated: May 2026</p>
+                </div>
+            </div>
+            <p class="intro">Kira is designed as a local-first expense tracker. Your core expense data stays on your device. Some optional AI features may send limited information to process a specific request — never more than is needed.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>1. Overview</h2>
+            <p>Kira is designed as a local-first expense tracker. Core expense data is stored on your device. Some optional AI features may send limited information to process a specific request — they do not store your data permanently and are always optional.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>2. Data stored on your device</h2>
+            <p>The following data is stored locally on your device and does not leave your device as part of normal operation:</p>
+            <ul>
+                <li>Expenses (amount, merchant, category, date, tags, notes)</li>
+                <li>Categories and custom tags</li>
+                <li>Settings and preferences</li>
+                <li>Onboarding selections</li>
+                <li>Usage counters (free plan limits)</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>3. AI features</h2>
+            <p>Kira uses AI for optional features. These features are only activated when you choose to use them.</p>
+            <ul>
+                <li><strong>Voice input parsing:</strong> The transcript of your voice input is sent to process the expense entry.</li>
+                <li><strong>Chat assistant:</strong> Your question and a summary of relevant spending data (not your full history) are sent to generate a response.</li>
+                <li><strong>Receipt categorization:</strong> The extracted text from your receipt may be sent when needed for categorization assistance.</li>
+            </ul>
+            <p>AI requests are <strong>stateless</strong>. Kira does not permanently store your data with any AI provider. Each request is independent.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>4. Cloudflare proxy</h2>
+            <p>Kira routes AI requests through a secure proxy so that the AI provider API key is not stored inside the app. Requests are processed solely to provide the requested feature. No user account is required for this proxy. Cloudflare's privacy policy applies to transit data processed through their infrastructure.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>5. No bank connection</h2>
+            <p>Kira does not require your bank login and does not connect directly to your bank account. No financial credentials are requested or stored by Kira.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>6. Apple Pay Shortcut</h2>
+            <p>If you use the Apple Pay Shortcut integration, payment details are sent to Kira only through the shortcut action you configure in iOS. Kira does not access Apple Wallet directly — this is an Apple restriction that applies to all third-party apps. The shortcut triggers a review flow in Kira, where you confirm before saving.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>7. Subscriptions</h2>
+            <p>Kira uses <strong>RevenueCat</strong> to manage subscription status and purchases. RevenueCat receives an anonymized identifier to verify your subscription. Payment processing is handled entirely by Apple through the App Store. Kira does not store your payment information.</p>
+            <p>For RevenueCat's privacy practices, see <a class="contact-link" href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>8. Data export and deletion</h2>
+            <p>You are in control of your data:</p>
+            <ul>
+                <li><strong>Export:</strong> Open Kira → Settings → Data &amp; Privacy → Export data (Premium feature).</li>
+                <li><strong>Delete expenses:</strong> Open Kira → Settings → Data &amp; Privacy → Delete all expenses.</li>
+                <li><strong>Delete the app:</strong> Deleting the app from your device will remove locally stored data if it is not backed up to iCloud. Review your iCloud backup settings to manage this.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>9. Contact</h2>
+            <p>If you have questions about this privacy policy or how Kira handles your data, please email <a class="contact-link" href="mailto:support@nostudiodude.com">support@nostudiodude.com</a>.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>10. Changes to this policy</h2>
+            <p>We may update this privacy policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of Kira after changes are posted constitutes your acceptance of the updated policy.</p>
+        </div>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 NoStudioDude. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="/kira/support/">Support</a>
+                <a href="/kira/privacy/">Privacy</a>
+                <a href="/kira/terms/">Terms</a>
+                <a href="mailto:support@nostudiodude.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var hamburger = document.getElementById('nav-hamburger');
+            var mobileMenu = document.getElementById('nav-mobile-menu');
+            hamburger.addEventListener('click', function () {
+                var isOpen = mobileMenu.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

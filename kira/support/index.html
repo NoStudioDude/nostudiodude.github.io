@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kira — Support</title>
+    <meta name="description" content="Kira support — frequently asked questions, troubleshooting, and contact information. Get help with the Kira expense tracker." />
+    <meta property="og:title" content="Kira — Support" />
+    <meta property="og:description" content="Need help with Kira? Find answers to common questions and get in touch." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/kira/assets/kira-logo-cartoon.png" />
+    <style>
+        /* ── Design tokens ── */
+        :root {
+            --kira-bg: #F6F3EE;
+            --kira-card: #FCFBF8;
+            --kira-text: #262220;
+            --kira-muted: #9A938B;
+            --kira-sage: #7B9770;
+            --kira-sage-soft: #AFC4A6;
+            --kira-lavender: #D8CDED;
+            --kira-apricot: #EDC4AA;
+            --kira-butter: #E6CF8E;
+            --kira-line: rgba(38, 34, 32, 0.10);
+        }
+
+        /* ── Reset ── */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+            background: var(--kira-bg);
+            color: var(--kira-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { color: var(--kira-sage); text-decoration: none; }
+        a:hover { color: var(--kira-text); }
+        img { max-width: 100%; display: block; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 10% 5%, rgba(175, 196, 166, 0.14) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 350px at 90% 30%, rgba(216, 205, 237, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Nav ── */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(246, 243, 238, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--kira-line);
+        }
+
+        .nav-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--kira-text);
+        }
+
+        .nav-logo img {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            object-fit: cover;
+        }
+
+        .nav-logo-text {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--kira-text);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--kira-muted);
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--kira-text); }
+
+        .nav-links a.active { color: var(--kira-text); font-weight: 600; }
+
+        .nav-cta {
+            background: var(--kira-sage);
+            color: #fff !important;
+            padding: 9px 20px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.15s !important;
+        }
+
+        .nav-cta:hover { opacity: 0.85; color: #fff !important; }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            flex-direction: column;
+            gap: 5px;
+            border-radius: 8px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--kira-text);
+            border-radius: 2px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .nav-mobile-menu {
+            display: none;
+            background: rgba(246, 243, 238, 0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--kira-line);
+            padding: 16px 24px 24px;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-mobile-menu.open { display: flex; }
+
+        .nav-mobile-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--kira-text);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--kira-line);
+        }
+
+        .nav-mobile-menu a:last-child { border-bottom: none; }
+        .nav-mobile-menu .nav-cta { margin-top: 8px; text-align: center; color: #fff !important; }
+
+        /* ── Section label ── */
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--kira-sage);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        /* ── Card ── */
+        .card {
+            background: var(--kira-card);
+            border: 1px solid var(--kira-line);
+            border-radius: 20px;
+            box-shadow: 0 2px 16px rgba(38, 34, 32, 0.06);
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            border-top: 1px solid var(--kira-line);
+            padding: 32px 0;
+            background: var(--kira-card);
+            margin-top: 24px;
+        }
+
+        .footer-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-copy { font-size: 13px; color: var(--kira-muted); }
+
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--kira-muted);
+            transition: color 0.15s;
+        }
+
+        .footer-links a:hover { color: var(--kira-text); }
+
+        /* ── Page layout ── */
+        .page-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 88px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            margin-bottom: 56px;
+        }
+
+        .page-header-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .page-header-mascot {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 6px 18px rgba(38, 34, 32, 0.10));
+        }
+
+        .page-header-text { flex: 1; }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4.5vw, 42px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .page-header .intro {
+            font-size: 16px;
+            color: var(--kira-muted);
+            line-height: 1.72;
+            margin-top: 6px;
+        }
+
+        /* ── Support section ── */
+        .support-section {
+            margin-bottom: 52px;
+        }
+
+        .support-section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--kira-line);
+            color: var(--kira-text);
+        }
+
+        /* ── Contact box ── */
+        .contact-box {
+            background: var(--kira-card);
+            border: 1px solid var(--kira-line);
+            border-radius: 20px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(38, 34, 32, 0.06);
+        }
+
+        .contact-box p {
+            font-size: 16px;
+            color: var(--kira-muted);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--kira-sage);
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.01em;
+            padding: 13px 28px;
+            border-radius: 999px;
+            transition: opacity 0.15s;
+        }
+
+        .contact-btn:hover { opacity: 0.85; color: #fff; }
+
+        /* ── FAQ (details/summary) ── */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        details {
+            background: var(--kira-card);
+            border: 1px solid var(--kira-line);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 8px rgba(38, 34, 32, 0.04);
+        }
+
+        details + details {
+            border-top: none;
+            border-radius: 0;
+        }
+
+        details:first-child { border-radius: 16px 16px 0 0; }
+        details:last-child { border-radius: 0 0 16px 16px; }
+        details:only-child { border-radius: 16px; }
+
+        summary {
+            padding: 18px 22px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--kira-text);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        summary:hover { background: rgba(123, 151, 112, 0.04); }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--kira-muted);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+            line-height: 1;
+        }
+
+        details[open] summary::after { transform: rotate(45deg); }
+
+        .faq-answer {
+            padding: 14px 22px 18px;
+            font-size: 15px;
+            color: var(--kira-muted);
+            line-height: 1.72;
+            border-top: 1px solid var(--kira-line);
+        }
+
+        .faq-answer strong { color: var(--kira-text); }
+
+        .faq-answer ul {
+            margin: 8px 0 0 20px;
+            list-style: disc;
+        }
+
+        .faq-answer ul li {
+            font-size: 15px;
+            color: var(--kira-muted);
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
+
+        /* ── Troubleshooting ── */
+        .trouble-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .trouble-item {
+            background: var(--kira-card);
+            border: 1px solid var(--kira-line);
+            border-radius: 16px;
+            padding: 20px 22px;
+            box-shadow: 0 1px 8px rgba(38, 34, 32, 0.04);
+        }
+
+        .trouble-item h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--kira-text);
+            margin-bottom: 8px;
+        }
+
+        .trouble-item p {
+            font-size: 14px;
+            color: var(--kira-muted);
+            line-height: 1.65;
+        }
+
+        /* ── Legal links ── */
+        .legal-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            font-size: 14px;
+            color: var(--kira-muted);
+            border: 1px solid var(--kira-line);
+            border-radius: 999px;
+            padding: 7px 16px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .legal-links a:hover { border-color: var(--kira-sage); color: var(--kira-text); }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .page-header-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .page-header-mascot { width: 72px; height: 72px; }
+            .footer-inner { justify-content: center; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Navigation ── -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a class="nav-logo" href="/kira/" aria-label="Kira home">
+                <img src="../assets/kira-logo-cartoon.png" alt="" aria-hidden="true" />
+                <span class="nav-logo-text">Kira</span>
+            </a>
+            <div class="nav-links">
+                <a href="/kira/#how-it-works">Features</a>
+                <a href="/kira/privacy/">Privacy</a>
+                <a href="/kira/support/" class="active" aria-current="page">Support</a>
+                <a href="/kira/#download" class="nav-cta">Download</a>
+            </div>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-mobile-menu" id="nav-mobile-menu" aria-label="Mobile navigation">
+            <a href="/kira/#how-it-works">Features</a>
+            <a href="/kira/privacy/">Privacy</a>
+            <a href="/kira/support/">Support</a>
+            <a href="/kira/#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- ── Page Content ── -->
+    <div class="page-content">
+
+        <div class="page-header">
+            <div class="page-header-row">
+                <img src="../assets/happy_kira.png" alt="Happy Kira mascot" class="page-header-mascot" loading="eager" />
+                <div class="page-header-text">
+                    <span class="section-label">Support</span>
+                    <h1>Kira Support</h1>
+                    <p class="intro">Need help with Kira? Here are the most common answers.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <section class="support-section">
+            <h2>Get in touch</h2>
+            <div class="contact-box">
+                <p>For support, feedback, or bug reports — send an email and we'll get back to you.</p>
+                <a class="contact-btn" href="mailto:support@nostudiodude.com">support@nostudiodude.com</a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="support-section">
+            <h2>Common Questions</h2>
+            <div class="faq-list">
+
+                <details>
+                    <summary>How does Kira store my data?</summary>
+                    <div class="faq-answer">
+                        Kira stores your core expense data locally on your device. Your expenses, categories, tags, and settings are kept on-device by default. AI features are optional and use only the minimum information needed for the current action.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does Kira connect to my bank?</summary>
+                    <div class="faq-answer">
+                        No. Kira does not require a bank connection. You add expenses manually, by voice, or by scanning receipts. No bank login is ever asked for.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does Kira use AI?</summary>
+                    <div class="faq-answer">
+                        Yes, for optional smart features like voice parsing, assistant chat, and receipt help. AI requests are stateless and only include the information needed for the current action. Your full expense history is never sent to an AI model.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Can Kira read Apple Wallet transactions?</summary>
+                    <div class="faq-answer">
+                        No app can freely read all Apple Wallet transactions directly — this is an Apple restriction. Kira can support Apple Pay logging through iOS Shortcuts where available, so you can trigger a quick review flow when you make a payment.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I restore Premium?</summary>
+                    <div class="faq-answer">
+                        Open Kira → <strong>Settings → Restore purchases</strong>. Make sure you are signed in to the same Apple ID you used to purchase.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I delete my data?</summary>
+                    <div class="faq-answer">
+                        Open Kira → <strong>Settings → Data &amp; Privacy → Delete all expenses</strong>. This removes all expense entries from your device. The action cannot be undone.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I export my data?</summary>
+                    <div class="faq-answer">
+                        Open Kira → <strong>Settings → Data &amp; Privacy → Export data</strong>. This feature is available to Premium users.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section class="support-section">
+            <h2>Troubleshooting</h2>
+            <div class="trouble-list">
+
+                <div class="trouble-item">
+                    <h3>Voice input does not understand me</h3>
+                    <p>Check your Voice language in Settings and make sure Kira has microphone permission. Speak naturally including the amount and merchant name — for example, "Spent twelve euros at Lidl". Try a quieter environment if recognition is inconsistent.</p>
+                </div>
+
+                <div class="trouble-item">
+                    <h3>Receipt scan did not detect the right amount</h3>
+                    <p>Retake the photo in good lighting and make sure the receipt is flat and well-aligned within the frame. Always review the extracted result before saving — Kira shows you the parsed fields and lets you correct anything before confirming.</p>
+                </div>
+
+                <div class="trouble-item">
+                    <h3>Notifications do not work</h3>
+                    <p>Check that notification permission is granted in iOS Settings → Kira → Notifications. Also confirm your daily reminder settings inside the app under Settings → Notifications.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Legal -->
+        <section class="support-section">
+            <h2>Legal</h2>
+            <div class="legal-links">
+                <a href="/kira/privacy/">Privacy Policy</a>
+                <a href="/kira/terms/">Terms of Use</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 NoStudioDude. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="/kira/support/">Support</a>
+                <a href="/kira/privacy/">Privacy</a>
+                <a href="/kira/terms/">Terms</a>
+                <a href="mailto:support@nostudiodude.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var hamburger = document.getElementById('nav-hamburger');
+            var mobileMenu = document.getElementById('nav-mobile-menu');
+            hamburger.addEventListener('click', function () {
+                var isOpen = mobileMenu.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
