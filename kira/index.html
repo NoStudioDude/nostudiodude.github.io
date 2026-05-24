@@ -588,22 +588,14 @@
 
         .how-col-shots {
             display: flex;
-            gap: 10px;
-            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
         }
 
         .how-col-shots img {
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(38, 34, 32, 0.12);
-            width: calc(50% - 5px);
-            object-fit: cover;
-        }
-
-        .how-col-shots.triple img {
-            width: calc(33.33% - 7px);
-        }
-
-        .how-col-shots.single img {
             width: 100%;
         }
 
@@ -1235,7 +1227,7 @@
                         <h3>Speak naturally</h3>
                         <p>Say something like "Spent €12 at Lidl" and Kira turns it into an expense with amount, merchant, category, and tags.</p>
                     </div>
-                    <div class="how-col-shots triple">
+                    <div class="how-col-shots">
                         <img src="assets/speak_start.png" alt="Kira speak button ready to record" loading="lazy" class="screenshot" />
                         <img src="assets/speak_bubble.png" alt="Kira listening with speech bubble" loading="lazy" class="screenshot" />
                         <img src="assets/speak_result.png" alt="Kira expense created from voice input" loading="lazy" class="screenshot" />
