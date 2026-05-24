@@ -548,19 +548,19 @@
         }
 
         .how-cols {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
         }
 
         .how-col {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         .how-col-content {
-            flex: 1;
+            max-width: 560px;
         }
 
         .how-col-num {
@@ -588,15 +588,16 @@
 
         .how-col-shots {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
+            flex-direction: row;
+            gap: 16px;
+            align-items: flex-start;
         }
 
         .how-col-shots img {
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(38, 34, 32, 0.12);
-            width: 100%;
+            width: 260px;
+            height: auto;
         }
 
         /* ═══════════════════════════════════════════
@@ -1103,7 +1104,8 @@
             .hero-phone-frame { max-width: 240px; }
             .hero h1 { font-size: clamp(32px, 7vw, 48px); }
             .problem-grid { grid-template-columns: 1fr; }
-            .how-cols { grid-template-columns: 1fr; }
+            .how-col-shots { flex-wrap: wrap; }
+            .how-col-shots img { width: calc(50% - 8px); }
             .overview-inner { grid-template-columns: 1fr; gap: 40px; }
             .ai-inner { grid-template-columns: 1fr; gap: 40px; }
             .ai-visual { order: 0; }
@@ -1252,7 +1254,7 @@
                         <h3>Add it manually</h3>
                         <p>Prefer typing? Add the merchant, amount, category, date, and recurrence in a clean focused screen.</p>
                     </div>
-                    <div class="how-col-shots single">
+                    <div class="how-col-shots">
                         <img src="assets/manual-expenses-screen.png" alt="Kira manual expense entry screen" loading="lazy" class="screenshot" />
                     </div>
                 </div>
