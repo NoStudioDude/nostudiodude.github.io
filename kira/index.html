@@ -741,17 +741,14 @@
             margin-bottom: 24px;
         }
 
-        .applepay-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(216, 205, 237, 0.3);
-            border: 1px solid rgba(216, 205, 237, 0.6);
-            border-radius: 12px;
-            padding: 10px 16px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #6B5B8A;
+        .applepay-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .applepay-visual img {
+            width: 100%;
+            max-width: 280px;
         }
 
         /* ═══════════════════════════════════════════
@@ -1347,11 +1344,8 @@
                         <li>Premium automation feature</li>
                     </ul>
                 </div>
-                <div>
-                    <div class="applepay-badge">
-                        <span>🔗</span>
-                        <span>iOS Shortcuts integration</span>
-                    </div>
+                <div class="applepay-visual">
+                    <img src="assets/apple-pay.png" alt="Apple Pay Shortcut integration in Kira" loading="lazy" class="screenshot" />
                 </div>
             </div>
         </div>
