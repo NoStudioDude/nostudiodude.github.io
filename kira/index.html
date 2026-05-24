@@ -261,10 +261,10 @@
 
         /* ── Screenshot frame ── */
         .screenshot {
-            border-radius: 30px;
-            box-shadow: 0 16px 56px rgba(38, 34, 32, 0.16), 0 4px 16px rgba(38, 34, 32, 0.08);
-            overflow: hidden;
+            clip-path: inset(0 round 30px);
+            filter: drop-shadow(0 16px 40px rgba(38, 34, 32, 0.14)) drop-shadow(0 4px 12px rgba(38, 34, 32, 0.08));
             display: block;
+            background: transparent;
         }
 
         /* ── Check list ── */
@@ -437,11 +437,9 @@
 
         .hero-phone-frame img {
             width: 100%;
-            border-radius: 40px;
-            box-shadow:
-                0 0 0 1.5px rgba(38, 34, 32, 0.08),
-                0 20px 80px rgba(38, 34, 32, 0.18),
-                0 4px 20px rgba(38, 34, 32, 0.10);
+            clip-path: inset(0 round 40px);
+            filter: drop-shadow(0 20px 60px rgba(38, 34, 32, 0.18)) drop-shadow(0 4px 16px rgba(38, 34, 32, 0.10));
+            background: transparent;
         }
 
         /* floating accent blobs on hero image */
@@ -594,10 +592,11 @@
         }
 
         .how-col-shots img {
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(38, 34, 32, 0.12);
+            clip-path: inset(0 round 20px);
+            filter: drop-shadow(0 8px 24px rgba(38, 34, 32, 0.12));
             width: 260px;
             height: auto;
+            background: transparent;
         }
 
         /* ═══════════════════════════════════════════
@@ -632,15 +631,17 @@
 
         .overview-shots img:first-child {
             width: 56%;
-            border-radius: 28px;
-            box-shadow: 0 16px 48px rgba(38, 34, 32, 0.14);
+            clip-path: inset(0 round 28px);
+            filter: drop-shadow(0 16px 36px rgba(38, 34, 32, 0.14));
+            background: transparent;
         }
 
         .overview-shots img:last-child {
             width: 44%;
-            border-radius: 22px;
-            box-shadow: 0 12px 36px rgba(38, 34, 32, 0.12);
+            clip-path: inset(0 round 22px);
+            filter: drop-shadow(0 12px 28px rgba(38, 34, 32, 0.12));
             transform: translateY(16px);
+            background: transparent;
         }
 
         /* ═══════════════════════════════════════════
@@ -666,8 +667,9 @@
         .ai-visual img {
             width: 100%;
             max-width: 280px;
-            border-radius: 30px;
-            box-shadow: 0 20px 64px rgba(38, 34, 32, 0.16);
+            clip-path: inset(0 round 30px);
+            filter: drop-shadow(0 20px 48px rgba(38, 34, 32, 0.16));
+            background: transparent;
         }
 
         .ai-body {
@@ -715,9 +717,11 @@
         .limits-visual img {
             width: 100%;
             max-width: 300px;
-            border-radius: 30px;
-            box-shadow: 0 16px 56px rgba(38, 34, 32, 0.14);
+            clip-path: inset(0 round 30px);
+            filter: drop-shadow(0 16px 40px rgba(38, 34, 32, 0.14));
             margin: 0 auto;
+            background: transparent;
+            display: block;
         }
 
         /* ═══════════════════════════════════════════
@@ -1097,7 +1101,6 @@
         ═══════════════════════════════════════════ */
         @media (max-width: 860px) {
             .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-            .hero-visual { order: -1; }
             .hero-phone-frame { max-width: 240px; }
             .hero h1 { font-size: clamp(32px, 7vw, 48px); }
             .problem-grid { grid-template-columns: 1fr; }
