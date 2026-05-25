@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devlog — NoStudioDude</title>
+  <meta name="description" content="Development notes from NoStudioDude — building iOS apps and browser extensions." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #111013;
+      --surface: #1a181d;
+      --line:    #272429;
+      --text:    #ddd8e4;
+      --soft:    #7a7584;
+      --link:    #c4bcd4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--text); }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 96px;
+    }
+
+    /* ── Header ── */
+    .header {
+      padding: 80px 0 56px;
+    }
+
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--soft);
+      margin-bottom: 32px;
+    }
+
+    .back:hover { color: var(--text); }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 15px;
+      color: var(--soft);
+    }
+
+    /* ── Entry list ── */
+    .entries { margin-bottom: 64px; }
+
+    .entry {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 0 32px;
+    }
+
+    .entry:last-child { border-bottom: 1px solid var(--line); }
+
+    .entry-date {
+      font-size: 12px;
+      color: var(--soft);
+      padding-top: 3px;
+    }
+
+    .entry-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .entry-title a {
+      color: var(--text);
+    }
+
+    .entry-title a:hover { color: var(--link); }
+
+    .entry-excerpt {
+      font-size: 14px;
+      color: var(--soft);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .entry-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--link);
+    }
+
+    .entry-link:hover { color: var(--text); }
+
+    /* ── Empty state ── */
+    .empty {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 48px 0;
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      font-size: 13px;
+      color: var(--soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+    }
+
+    footer a { color: var(--soft); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 500px) {
+      .header { padding: 52px 0 40px; }
+      .entry { grid-template-columns: 1fr; gap: 4px; }
+      .entry-date { margin-bottom: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="header">
+      <a class="back" href="/">&larr; NoStudioDude</a>
+      <h1>Devlog</h1>
+      <p>Notes on building apps, things that didn't work, and things that did.</p>
+    </header>
+
+    <section class="entries">
+
+      <!-- When you have entries, use this structure:
+
+      <div class="entry">
+        <span class="entry-date">May 2026</span>
+        <div>
+          <div class="entry-title"><a href="/devlog/entry-slug/">Post title here</a></div>
+          <p class="entry-excerpt">A short description of what this entry is about.</p>
+          <a class="entry-link" href="/devlog/entry-slug/">Read &rarr;</a>
+        </div>
+      </div>
+
+      -->
+
+      <div class="empty">Nothing here yet.</div>
+
+    </section>
+
+    <footer>
+      <a href="/">&larr; Back home</a>
+      <a href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>
+    </footer>
+
+  </div>
+</body>
+</html>

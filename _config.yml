@@ -14,12 +14,7 @@ author: Rui Nunes
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  About Me: "aboutme"
-  Blog: "blog"
-  Projects: "projects"
-  # Resources:
-  #   - Beautiful Jekyll: "https://beautifuljekyll.com"
-  #   - Learn markdown: "https://www.markdowntutorial.com/"
+  # no navbar pages — site uses standalone HTML pages
 
 # --- Logo --- #
 
