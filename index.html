@@ -32,7 +32,7 @@
     a:hover { color: var(--text); }
 
     .wrap {
-      max-width: 680px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 24px 96px;
     }
@@ -69,10 +69,18 @@
 
     .app {
       border-top: 1px solid var(--line);
-      padding: 28px 0;
+      padding: 32px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
     }
 
     .app:last-child { border-bottom: 1px solid var(--line); }
+
+    .app-body {
+      flex: 1;
+      min-width: 0;
+    }
 
     .app-row {
       display: flex;
@@ -94,18 +102,16 @@
     .app-desc {
       font-size: 14px;
       color: var(--soft);
-      max-width: 520px;
       margin-bottom: 14px;
       line-height: 1.6;
     }
 
     .app-screenshot {
-      width: 100%;
-      max-width: 380px;
+      width: 280px;
+      flex-shrink: 0;
       border-radius: 10px;
       border: 1px solid var(--line);
       display: block;
-      margin-bottom: 16px;
       opacity: 0.88;
       transition: opacity 0.2s;
     }
@@ -157,8 +163,10 @@
     footer a { color: var(--soft); }
     footer a:hover { color: var(--text); }
 
-    @media (max-width: 500px) {
+    @media (max-width: 620px) {
       .header { padding: 52px 0 44px; }
+      .app { flex-direction: column; gap: 20px; }
+      .app-screenshot { width: 100%; }
       .app-row { flex-wrap: wrap; gap: 4px; }
     }
   </style>
@@ -175,32 +183,38 @@
       <p class="label">Work</p>
 
       <div class="app">
-        <div class="app-row">
-          <span class="app-name">Kira</span>
-          <span class="app-meta">iOS &middot; coming soon</span>
+        <div class="app-body">
+          <div class="app-row">
+            <span class="app-name">Kira</span>
+            <span class="app-meta">iOS &middot; coming soon</span>
+          </div>
+          <p class="app-desc">Expense tracker for iPhone. Scan receipts, set budgets, and actually understand where your money goes.</p>
+          <a class="app-link" href="/kira/">See Kira &rarr;</a>
         </div>
-        <p class="app-desc">Expense tracker for iPhone. Scan receipts, set budgets, and actually understand where your money goes.</p>
         <img class="app-screenshot" src="/kira/assets/expenses-main-screen.png" alt="Kira expenses screen" />
-        <a class="app-link" href="/kira/">See Kira &rarr;</a>
       </div>
 
       <div class="app">
-        <div class="app-row">
-          <span class="app-name">FlowRead</span>
-          <span class="app-meta">iOS &middot; App Store</span>
+        <div class="app-body">
+          <div class="app-row">
+            <span class="app-name">FlowRead</span>
+            <span class="app-meta">iOS &middot; App Store</span>
+          </div>
+          <p class="app-desc">Focus reader for iPhone. Shows one word at a time so you can read faster without distraction. No buttons, no toolbars.</p>
+          <a class="app-link" href="/flowreadapp/">See FlowRead &rarr;</a>
         </div>
-        <p class="app-desc">Focus reader for iPhone. Shows one word at a time so you can read faster without distraction. No buttons, no toolbars.</p>
         <img class="app-screenshot" src="/flowreadapp/assets/promo/CarouselMaker_ImageSplitter_1.png" alt="FlowRead reading screen" />
-        <a class="app-link" href="/flowreadapp/">See FlowRead &rarr;</a>
       </div>
 
       <div class="app">
-        <div class="app-row">
-          <span class="app-name">Fluentify</span>
-          <span class="app-meta">Chrome &amp; Brave &middot; Web Store</span>
+        <div class="app-body">
+          <div class="app-row">
+            <span class="app-name">Fluentify</span>
+            <span class="app-meta">Chrome &amp; Brave &middot; Web Store</span>
+          </div>
+          <p class="app-desc">Browser extension that rewrites text with AI. Select anything, hit a shortcut, get a better version — without leaving the page.</p>
+          <a class="app-link" href="/fluentify/">See Fluentify &rarr;</a>
         </div>
-        <p class="app-desc">Browser extension that rewrites text with AI. Select anything, hit a shortcut, get a better version — without leaving the page.</p>
-        <a class="app-link" href="/fluentify/">See Fluentify &rarr;</a>
       </div>
 
     </section>
