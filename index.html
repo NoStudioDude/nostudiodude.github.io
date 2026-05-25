@@ -3,400 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoStudioDude — Independent App Developer</title>
-  <meta name="description" content="NoStudioDude — independent iOS and browser extension developer. Apps: Kira, FlowRead, Fluentify." />
+  <title>NoStudioDude</title>
+  <meta name="description" content="Independent app developer — iOS apps and browser extensions." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #0a0e1a;
-      --surface:  #111520;
-      --border:   #1e2440;
-      --border-hover: #2e3660;
-      --text:     #e8eaf0;
-      --muted:    #6b7494;
-      --accent-kira:      #7bba8c;
-      --accent-flowread:  #f59e0b;
-      --accent-fluentify: #4f8ef7;
+      --bg:      #111013;
+      --surface: #1a181d;
+      --line:    #272429;
+      --text:    #ddd8e4;
+      --soft:    #7a7584;
+      --link:    #c4bcd4;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--text); }
 
-    .page {
-      max-width: 860px;
+    .wrap {
+      max-width: 680px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px 96px;
     }
 
     /* ── Header ── */
     .header {
-      padding: 72px 0 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .header-logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #1e2a50, #2e3f7a);
-      border: 1px solid var(--border-hover);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.5px;
-      color: #a0b4e8;
-      margin-bottom: 4px;
+      padding: 80px 0 64px;
     }
 
     .header h1 {
-      font-size: clamp(28px, 5vw, 40px);
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.15;
-    }
-
-    .header .tagline {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 420px;
-    }
-
-    .social-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 4px;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
-      color: var(--muted);
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .social-link:hover {
-      border-color: var(--border-hover);
-      color: var(--text);
-    }
-
-    .social-link svg { flex-shrink: 0; }
-
-    /* ── Section label ── */
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    /* ── App grid ── */
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .app-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      transition: border-color 0.2s, transform 0.2s;
-      overflow: hidden;
-    }
-
-    .app-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--card-accent);
-      border-radius: 16px 16px 0 0;
-      opacity: 0.85;
-    }
-
-    .app-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-
-    .app-card[data-app="kira"]      { --card-accent: var(--accent-kira); }
-    .app-card[data-app="flowread"]  { --card-accent: var(--accent-flowread); }
-    .app-card[data-app="fluentify"] { --card-accent: var(--accent-fluentify); }
-
-    .app-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      object-fit: cover;
-    }
-
-    .app-icon-badge {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 20px;
-      color: #fff;
-      background: linear-gradient(160deg, #5aa3ff, #2f6eea);
-      box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
-    }
-
-    .platform-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      color: var(--muted);
+      letter-spacing: -0.2px;
       margin-bottom: 10px;
     }
 
+    .header p {
+      color: var(--soft);
+      font-size: 15px;
+      max-width: 460px;
+    }
+
+    /* ── Section heading ── */
+    .label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 24px;
+    }
+
+    /* ── App list ── */
+    .apps { margin-bottom: 64px; }
+
+    .app {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+    }
+
+    .app:last-child { border-bottom: 1px solid var(--line); }
+
+    .app-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
     .app-name {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .app-meta {
+      font-size: 12px;
+      color: var(--soft);
     }
 
     .app-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-      flex: 1;
+      font-size: 14px;
+      color: var(--soft);
+      max-width: 520px;
+      margin-bottom: 14px;
+      line-height: 1.6;
     }
 
-    .app-footer {
-      margin-top: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .status-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .status-dot::before {
-      content: '';
+    .app-screenshot {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
       display: block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--muted);
+      margin-bottom: 16px;
+      opacity: 0.88;
+      transition: opacity 0.2s;
     }
 
-    .status-dot.live::before { background: #4ade80; }
+    .app-screenshot:hover { opacity: 1; }
 
     .app-link {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--card-accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      opacity: 0.85;
-      transition: opacity 0.15s;
-    }
-
-    .app-card:hover .app-link { opacity: 1; }
-
-    /* ── Devlog section ── */
-    .devlog-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px 24px;
-      transition: border-color 0.2s, transform 0.2s;
-      margin-bottom: 48px;
-    }
-
-    .devlog-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-
-    .devlog-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .devlog-desc {
       font-size: 13px;
-      color: var(--muted);
+      font-weight: 500;
+      color: var(--link);
     }
 
-    .devlog-arrow {
-      font-size: 22px;
-      color: var(--muted);
-      flex-shrink: 0;
-      margin-left: 16px;
-      transition: color 0.15s, transform 0.15s;
+    .app-link:hover { color: var(--text); }
+
+    /* ── Devlog ── */
+    .devlog {
+      margin-bottom: 64px;
     }
 
-    .devlog-card:hover .devlog-arrow {
+    .devlog-link {
+      display: block;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 0;
+      font-size: 15px;
+      font-weight: 500;
       color: var(--text);
-      transform: translateX(3px);
+      transition: color 0.15s;
     }
+
+    .devlog-link span {
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 400;
+      margin-left: 8px;
+    }
+
+    .devlog-link:hover { color: var(--link); }
 
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding-top: 28px;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--soft);
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px 20px;
     }
 
+    footer a { color: var(--soft); }
     footer a:hover { color: var(--text); }
 
-    /* ── Mobile ── */
-    @media (max-width: 620px) {
-      .header { padding: 48px 0 36px; }
-      .apps-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (min-width: 621px) and (max-width: 780px) {
-      .apps-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 500px) {
+      .header { padding: 52px 0 44px; }
+      .app-row { flex-wrap: wrap; gap: 4px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="wrap">
 
-    <!-- Header -->
     <header class="header">
-      <div class="header-logo">N</div>
       <h1>NoStudioDude</h1>
-      <p class="tagline">Independent developer building iOS apps and browser extensions.</p>
-      <div class="social-row">
-        <a class="social-link" href="https://github.com/nostudiodude" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-          GitHub
-        </a>
-        <a class="social-link" href="mailto:nostudiodude@hotmail.com">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-          </svg>
-          Contact
-        </a>
-      </div>
+      <p>I make small apps for iOS and browsers. Based in the Netherlands.</p>
     </header>
 
-    <!-- Apps -->
-    <section>
-      <p class="section-label">Apps</p>
-      <div class="apps-grid">
+    <section class="apps">
+      <p class="label">Work</p>
 
-        <!-- Kira -->
-        <a class="app-card" data-app="kira" href="/kira/">
-          <img class="app-icon" src="/kira/assets/kira-logo-cartoon.png" alt="Kira app icon" />
-          <span class="platform-badge">iOS</span>
-          <div class="app-name">Kira</div>
-          <div class="app-desc">Smart expense tracker with receipt scanning, budgets, and insights.</div>
-          <div class="app-footer">
-            <span class="status-dot soon">Coming soon</span>
-            <span class="app-link">Explore &#8250;</span>
-          </div>
-        </a>
-
-        <!-- FlowRead -->
-        <a class="app-card" data-app="flowread" href="/flowreadapp/">
-          <img class="app-icon" src="/flowreadapp/assets/favicon.png" alt="FlowRead app icon" />
-          <span class="platform-badge">iOS</span>
-          <div class="app-name">FlowRead</div>
-          <div class="app-desc">Gesture-first RSVP reader. One word at a time. Zero distractions.</div>
-          <div class="app-footer">
-            <span class="status-dot live">Live</span>
-            <span class="app-link">Explore &#8250;</span>
-          </div>
-        </a>
-
-        <!-- Fluentify -->
-        <a class="app-card" data-app="fluentify" href="/fluentify/">
-          <div class="app-icon-badge" aria-hidden="true">F</div>
-          <span class="platform-badge">Chrome &amp; Brave</span>
-          <div class="app-name">Fluentify</div>
-          <div class="app-desc">Highlight any text and rewrite it with AI — right where you type.</div>
-          <div class="app-footer">
-            <span class="status-dot live">Live</span>
-            <span class="app-link">Explore &#8250;</span>
-          </div>
-        </a>
-
+      <div class="app">
+        <div class="app-row">
+          <span class="app-name">Kira</span>
+          <span class="app-meta">iOS &middot; coming soon</span>
+        </div>
+        <p class="app-desc">Expense tracker for iPhone. Scan receipts, set budgets, and actually understand where your money goes.</p>
+        <img class="app-screenshot" src="/kira/assets/expenses-main-screen.png" alt="Kira expenses screen" />
+        <a class="app-link" href="/kira/">See Kira &rarr;</a>
       </div>
+
+      <div class="app">
+        <div class="app-row">
+          <span class="app-name">FlowRead</span>
+          <span class="app-meta">iOS &middot; App Store</span>
+        </div>
+        <p class="app-desc">Focus reader for iPhone. Shows one word at a time so you can read faster without distraction. No buttons, no toolbars.</p>
+        <img class="app-screenshot" src="/flowreadapp/assets/promo/CarouselMaker_ImageSplitter_1.png" alt="FlowRead reading screen" />
+        <a class="app-link" href="/flowreadapp/">See FlowRead &rarr;</a>
+      </div>
+
+      <div class="app">
+        <div class="app-row">
+          <span class="app-name">Fluentify</span>
+          <span class="app-meta">Chrome &amp; Brave &middot; Web Store</span>
+        </div>
+        <p class="app-desc">Browser extension that rewrites text with AI. Select anything, hit a shortcut, get a better version — without leaving the page.</p>
+        <a class="app-link" href="/fluentify/">See Fluentify &rarr;</a>
+      </div>
+
     </section>
 
-    <!-- Devlog -->
-    <section>
-      <p class="section-label">Devlog</p>
-      <a class="devlog-card" href="/blog">
-        <div>
-          <div class="devlog-title">Development Blog</div>
-          <div class="devlog-desc">Notes on building apps, lessons learned, and process.</div>
-        </div>
-        <span class="devlog-arrow" aria-hidden="true">&#8250;</span>
+    <section class="devlog">
+      <p class="label">Writing</p>
+      <a class="devlog-link" href="/blog">
+        Development blog <span>Notes on building these apps</span>
       </a>
     </section>
 
-    <!-- Footer -->
     <footer>
-      <span>Built by Rui Nunes</span>
-      <span>
-        <a href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>
-        &nbsp;&middot;&nbsp;
-        <a href="https://github.com/nostudiodude" target="_blank" rel="noopener">GitHub</a>
-      </span>
+      <a href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>
+      <a href="https://github.com/nostudiodude" target="_blank" rel="noopener">GitHub</a>
     </footer>
 
   </div>
