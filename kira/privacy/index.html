@@ -333,7 +333,7 @@
                 <div>
                     <span class="section-label">Privacy Policy</span>
                     <h1>Kira Privacy Policy</h1>
-                    <p class="updated">Last updated: May 2026</p>
+                    <p class="updated">Last updated: June 2026</p>
                 </div>
             </div>
             <p class="intro">Kira is designed as a local-first expense tracker. Your core expense data stays on your device. Some optional AI features may send limited information to process a specific request — never more than is needed.</p>
@@ -346,6 +346,7 @@
 
         <div class="policy-section">
             <h2>2. Data stored on your device</h2>
+            <p>Kira is designed as a privacy-focused expense tracker. Your expense records are stored locally on your device unless a feature explicitly requires external processing, such as optional AI features.</p>
             <p>The following data is stored locally on your device and does not leave your device as part of normal operation:</p>
             <ul>
                 <li>Expenses (amount, merchant, category, date, tags, notes)</li>
@@ -357,19 +358,32 @@
         </div>
 
         <div class="policy-section">
-            <h2>3. AI features</h2>
-            <p>Kira uses AI for optional features. These features are only activated when you choose to use them.</p>
+            <h2>3. AI features and third-party processing</h2>
+            <p>Kira includes optional AI-powered features, such as expense categorization, receipt analysis, and spending insights through chat.</p>
+            <p>When you choose to use these AI features, Kira may send the information required to process your request to our secure backend service and to a third-party AI provider. This may include:</p>
             <ul>
-                <li><strong>Voice input parsing:</strong> The transcript of your voice input is sent to process the expense entry.</li>
-                <li><strong>Chat assistant:</strong> Your question and a summary of relevant spending data (not your full history) are sent to generate a response.</li>
-                <li><strong>Receipt categorization:</strong> The extracted text from your receipt may be sent when needed for categorization assistance.</li>
+                <li>Expense amounts</li>
+                <li>Merchant or store names</li>
+                <li>Expense categories and tags</li>
+                <li>Receipt images or extracted receipt text</li>
+                <li>Chat messages sent to Kira</li>
+                <li>Limited recent spending context needed to answer your request</li>
             </ul>
-            <p>AI requests are <strong>stateless</strong>. Kira does not permanently store your data with any AI provider. Each request is independent.</p>
+            <p>Kira uses <strong>Cloudflare Workers</strong> as a secure backend and proxy service to protect API keys and route AI requests. AI requests may then be processed by <strong>Google Gemini</strong>. This data is used solely to provide the requested AI result, such as categorizing an expense, reading a receipt, or generating a spending insight.</p>
+            <p>AI features are <strong>optional</strong>. You can use Kira without enabling AI features. You can disable AI features at any time in the app settings.</p>
+            <p>We do not sell your personal data. We do not use your expense data for advertising. We do not intentionally send unnecessary personal information to the AI provider.</p>
         </div>
 
         <div class="policy-section">
-            <h2>4. Cloudflare proxy</h2>
-            <p>Kira routes AI requests through a secure proxy so that the AI provider API key is not stored inside the app. Requests are processed solely to provide the requested feature. No user account is required for this proxy. Cloudflare's privacy policy applies to transit data processed through their infrastructure.</p>
+            <h2>4. Third-party service providers</h2>
+            <p>Kira may use the following service providers:</p>
+            <ul>
+                <li><strong>Cloudflare:</strong> used to securely route AI requests and protect API keys. Cloudflare processes personal data as a processor on behalf of Kira.</li>
+                <li><strong>Google Gemini:</strong> used to process optional AI requests, such as categorization, receipt reading, and chat responses.</li>
+                <li><strong>RevenueCat:</strong> used to manage subscriptions and purchases.</li>
+                <li><strong>Apple:</strong> used for App Store purchases and subscription management.</li>
+            </ul>
+            <p>Each provider's own privacy policy governs how they handle data on their infrastructure.</p>
         </div>
 
         <div class="policy-section">
