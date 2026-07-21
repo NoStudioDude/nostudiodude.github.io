@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twitch NOW — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Twitch NOW browser extension.">
+  <style>
+    :root {
+      --bg: #0e0e10;
+      --surface: #18181b;
+      --border: #2f2f35;
+      --text: #f7f7f8;
+      --muted: #adadb8;
+      --accent: #9146ff;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    .logo svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .updated {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 32px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin: 36px 0 10px;
+      padding-top: 4px;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin: 20px 0 6px;
+      color: var(--text);
+    }
+
+    p,
+    li {
+      color: #d6d6db;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 8px 0;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 4px 20px 16px;
+      margin: 16px 0;
+    }
+
+    .lede {
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14.5px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(145, 70, 255, 0.16);
+      color: #c9a6ff;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 48px;
+    }
+
+    code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1px 6px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 3 3 7v12h4v2h3l2-2h3l5-5V3H4zm2 2h13v9l-3 3h-4l-2 2v-2H6V5zm5 3v5h2V8h-2zm5 0v5h2V8h-2z" />
+        </svg>
+      </span>
+      <div>
+        <h1>Twitch NOW — Privacy Policy</h1>
+      </div>
+    </header>
+    <p class="updated">Last updated: 21 July 2026</p>
+
+    <p class="lede">
+      Twitch NOW is a browser extension that shows which channels you follow on
+      Twitch are live right now and notifies you when they go live. This policy
+      explains what data the extension handles and how it is used. The short
+      version: <strong>everything stays on your device, and nothing is ever sent
+        to us or to any third party.</strong>
+    </p>
+
+    <h2>1. Who provides this extension</h2>
+    <p>
+      Twitch NOW is an independent extension. It is not affiliated with,
+      endorsed by, or sponsored by Twitch Interactive, Inc. “Twitch” is a
+      trademark of its respective owner.
+    </p>
+
+    <h2>2. Data the extension handles</h2>
+    <p>
+      Twitch NOW does not operate any server or backend. It talks directly to
+      Twitch’s official API and stores everything locally in your browser using
+      the standard extension storage area (<code>chrome.storage.local</code>).
+      The following data is involved:
+    </p>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Purpose</th>
+            <th>Where it lives</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Twitch access token</strong> (obtained through Twitch’s official login)</td>
+            <td>Authenticates requests to Twitch so the extension can read which channels you follow are live.</td>
+            <td>Stored locally on your device; sent only to Twitch.</td>
+          </tr>
+          <tr>
+            <td><strong>Your Twitch username &amp; user ID</strong></td>
+            <td>Identifies your account and matches it to the channels you follow.</td>
+            <td>Stored locally on your device.</td>
+          </tr>
+          <tr>
+            <td><strong>Live-stream details</strong> (channel names, game, title, viewer counts, thumbnails)</td>
+            <td>Displayed in the extension popup.</td>
+            <td>Cached locally on your device.</td>
+          </tr>
+          <tr>
+            <td><strong>Your preferences</strong> (theme, density, sort/filter, favorites, notification settings, quiet
+              hours)</td>
+            <td>Remembers how you like the extension to behave.</td>
+            <td>Stored locally on your device.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>3. How your data is used</h2>
+    <ul>
+      <li>The access token is sent <strong>only to Twitch</strong> (<code>api.twitch.tv</code> and
+        <code>id.twitch.tv</code>) to fetch the live status of channels you follow.</li>
+      <li>All sorting, filtering, searching, grouping, favorites and notifications are computed <strong>locally</strong>
+        on your device from the cached data.</li>
+      <li>The token is used solely to provide the extension’s single purpose and nothing else.</li>
+    </ul>
+
+    <h2>4. What we do <em>not</em> do</h2>
+    <ul>
+      <li>We do <strong>not</strong> collect, receive, or have access to any of your data — there is no developer
+        server.</li>
+      <li>We do <strong>not</strong> use analytics, tracking, advertising, or fingerprinting.</li>
+      <li>We do <strong>not</strong> sell or transfer your data to third parties.</li>
+      <li>We do <strong>not</strong> read your browsing history or the content of other websites.</li>
+      <li>We do <strong>not</strong> load or execute any remote code — all code ships inside the extension.</li>
+    </ul>
+
+    <h2>5. Permissions and why they are needed</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>identity</code></td>
+            <td>Runs Twitch’s official OAuth login so you can connect your account.</td>
+          </tr>
+          <tr>
+            <td><code>storage</code></td>
+            <td>Stores your token, preferences, and the cached live-channel list on your device.</td>
+          </tr>
+          <tr>
+            <td><code>alarms</code></td>
+            <td>Schedules the periodic background check for newly-live channels.</td>
+          </tr>
+          <tr>
+            <td><code>notifications</code></td>
+            <td>Shows a desktop notification when a followed channel goes live.</td>
+          </tr>
+          <tr>
+            <td><code>offscreen</code></td>
+            <td>Plays the optional go-live notification sound.</td>
+          </tr>
+          <tr>
+            <td><code>api.twitch.tv</code>, <code>id.twitch.tv</code></td>
+            <td>The only websites the extension contacts — Twitch’s API and login.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>6. Data retention and deletion</h2>
+    <p>
+      All data is kept locally until you remove it. You can:
+    </p>
+    <ul>
+      <li>Use <strong>Settings → Twitch account → Disconnect</strong> to clear your token and account details (the
+        extension also asks Twitch to revoke the token).</li>
+      <li>Remove the extension from your browser, which deletes all of its locally stored data.</li>
+    </ul>
+
+    <h2>7. Third-party services</h2>
+    <p>
+      The extension communicates only with Twitch. Your use of Twitch is governed
+      by Twitch’s own
+      <a href="https://www.twitch.tv/p/legal/privacy-notice/" rel="noopener">Privacy Notice</a>
+      and <a href="https://www.twitch.tv/p/legal/terms-of-service/" rel="noopener">Terms of Service</a>.
+    </p>
+
+    <h2>8. Children’s privacy</h2>
+    <p>
+      Twitch NOW is not directed to children and does not knowingly collect data
+      from anyone. It stores no personal data off your device.
+    </p>
+
+    <h2>9. Changes to this policy</h2>
+    <p>
+      If this policy changes, the “Last updated” date above will be revised. Material
+      changes will be reflected here before they take effect.
+    </p>
+
+    <h2>10. Contact</h2>
+    <p>
+      Questions about this policy or the extension? Contact
+      <a href="mailto:nostudiodude@hotmail.com">nostudiodude@hotmail.com</a>.
+    </p>
+
+    <hr>
+    <footer>
+      Twitch NOW is an open, independent project and is not affiliated with Twitch Interactive, Inc.
+    </footer>
+
+  </div>
+</body>
+
+</html>
